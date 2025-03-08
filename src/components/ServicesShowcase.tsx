@@ -29,6 +29,10 @@ const ServicesShowcase = () => {
   const bubbleY = useTransform(scrollYProgress, [0, 1], [0, -40]); // Enhanced vertical movement
   const bubbleX = useTransform(scrollYProgress, [0, 1], [0, 20]); // Added horizontal movement
 
+  // Border position transformation with parallax effect
+  const borderY = useTransform(scrollYProgress, [0, 1], [0, -65]);
+  const borderScale = useTransform(scrollYProgress, [0, 0.3, 0.8, 1], [0.95, 1.05, 1.05, 1]);
+
   return (
     <motion.div 
       ref={containerRef}
@@ -36,10 +40,19 @@ const ServicesShowcase = () => {
       style={{ opacity, scale }}
     >
       <div className="flex justify-center items-center">
-        <div className="relative w-full max-w-2xl">
+        <div className="relative w-full max-w-xl">
+          {/* Purple border with gap */}
+          <motion.div 
+            className="absolute inset-0 rounded-[2.5rem] border-2 border-[#9b87f5] -m-4 z-0"
+            style={{ 
+              y: borderY,
+              scale: borderScale
+            }}
+          />
+
           {/* Green rectangle background - made smaller */}
           <motion.div 
-            className="bg-neon-green rounded-[2.5rem] p-10 pt-14 pb-14 relative z-10"
+            className="bg-neon-green rounded-[2.5rem] p-8 pt-12 pb-12 relative z-10 max-w-lg mx-auto"
             style={{ y: boxY }}
           >
             <motion.div 
@@ -48,7 +61,7 @@ const ServicesShowcase = () => {
               {services.map((service, index) => (
                 <motion.div
                   key={index}
-                  className="font-display text-3xl md:text-4xl xl:text-5xl font-bold text-black"
+                  className="font-display text-2xl md:text-3xl xl:text-4xl font-bold text-black"
                   initial={{ x: 50, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.8 + (index * 0.1), duration: 0.5 }}
