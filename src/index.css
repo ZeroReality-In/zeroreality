@@ -36,6 +36,9 @@
     --ring: 135 100% 43%;
 
     --radius: 1.5rem;
+    
+    /* New custom color for the plus symbol and borders */
+    --purple: 252 100% 74%;
   }
 
   .dark {

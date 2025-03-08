@@ -23,6 +23,10 @@ const ServicesShowcase = () => {
   const boxY = useTransform(scrollYProgress, [0, 1], [0, -50]);
   const opacity = useTransform(scrollYProgress, [0, 0.3, 0.8, 1], [0, 1, 1, 0.3]);
   const scale = useTransform(scrollYProgress, [0, 0.3, 0.8, 1], [0.9, 1, 1, 0.95]);
+  
+  // New transformations for the "WE OFFER" bubble
+  const bubbleRotate = useTransform(scrollYProgress, [0, 1], [-5, 5]);
+  const bubbleY = useTransform(scrollYProgress, [0, 1], [0, -20]);
 
   return (
     <motion.div 
@@ -31,10 +35,10 @@ const ServicesShowcase = () => {
       style={{ opacity, scale }}
     >
       <div className="flex justify-center items-center">
-        <div className="relative w-full max-w-3xl">
-          {/* Green rectangle background */}
+        <div className="relative w-full max-w-2xl">
+          {/* Green rectangle background - made smaller */}
           <motion.div 
-            className="bg-neon-green rounded-[2.5rem] p-12 pt-16 pb-16 relative z-10"
+            className="bg-neon-green rounded-[2.5rem] p-10 pt-14 pb-14 relative z-10"
             style={{ y: boxY }}
           >
             <motion.div 
@@ -43,7 +47,7 @@ const ServicesShowcase = () => {
               {services.map((service, index) => (
                 <motion.div
                   key={index}
-                  className="font-display text-3xl md:text-5xl xl:text-6xl font-bold text-black"
+                  className="font-display text-3xl md:text-4xl xl:text-5xl font-bold text-black"
                   initial={{ x: 50, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.8 + (index * 0.1), duration: 0.5 }}
@@ -54,27 +58,31 @@ const ServicesShowcase = () => {
             </motion.div>
           </motion.div>
 
-          {/* "WE OFFER" bubble */}
+          {/* "WE OFFER" bubble - now with rotation and border */}
           <motion.div
-            className="absolute -left-10 top-20 md:-left-32 md:top-32 z-20 bg-black rounded-full p-6 md:p-10"
+            className="absolute -left-10 top-20 md:-left-32 md:top-32 z-20 bg-black rounded-full p-6 md:p-8 border-2 border-[#9b87f5]"
             initial={{ scale: 0, rotate: -20 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ delay: 1.2, duration: 0.5, type: "spring" }}
+            style={{ 
+              y: bubbleY,
+              rotate: bubbleRotate
+            }}
           >
-            <span className="font-display text-xl md:text-4xl font-bold text-white whitespace-nowrap">
+            <span className="font-display text-xl md:text-3xl font-bold text-white whitespace-nowrap">
               WE OFFER 🏄
             </span>
           </motion.div>
 
-          {/* Floating elements */}
+          {/* Floating plus elements - made bigger */}
           <motion.div
-            className="absolute -right-20 -bottom-20 z-20"
+            className="absolute right-[-5%] bottom-[-10%] z-20 w-32 h-32 md:w-48 md:h-48"
             style={{ 
               y: useTransform(scrollYProgress, [0, 1], [0, -100]),
               rotate: useTransform(scrollYProgress, [0, 1], [0, 20]) 
             }}
           >
-            <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="100%" height="100%" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M40 0H20V20H0V40H20V60H40V40H60V20H40V0Z" fill="#8F7AFF"/>
               <path d="M100 40H80V60H60V80H80V100H100V80H120V60H100V40Z" fill="#8F7AFF"/>
             </svg>
