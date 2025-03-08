@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -67,6 +68,11 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				'neon-green': '#ADFF00',
+				'purple': {
+					DEFAULT: '#9b87f5',
+					light: '#b8a9f7',
+					dark: '#7e69d4'
+				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -105,6 +111,14 @@ export default {
 				'slide-out-right': {
 					'0%': { transform: 'translateX(0)' },
 					'100%': { transform: 'translateX(100%)' }
+				},
+				'pulse-opacity': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.5' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
 				}
 			},
 			animation: {
@@ -117,7 +131,9 @@ export default {
 				'slide-in-right': 'slide-in-right 0.3s ease-out',
 				'slide-out-right': 'slide-out-right 0.3s ease-out',
 				'enter': 'fade-in 0.3s ease-out, scale-in 0.2s ease-out',
-				'exit': 'fade-out 0.3s ease-out, scale-out 0.2s ease-out'
+				'exit': 'fade-out 0.3s ease-out, scale-out 0.2s ease-out',
+				'pulse-opacity': 'pulse-opacity 2s ease-in-out infinite',
+				'float': 'float 3s ease-in-out infinite'
 			}
 		}
 	},
