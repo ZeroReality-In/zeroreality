@@ -26,7 +26,7 @@ const Hero = () => {
     let timeout: NodeJS.Timeout;
     
     if (isTyping) {
-      // Typing effect for the current service
+      // Typing effect for the current service - character by character
       if (displayedText.length < serviceTexts[currentTextIndex].length) {
         timeout = setTimeout(() => {
           setDisplayedText(prev => prev + serviceTexts[currentTextIndex][prev.length]);
@@ -38,7 +38,7 @@ const Hero = () => {
         }, 1500);
       }
     } else {
-      // Deleting effect
+      // Deleting effect - character by character
       if (displayedText.length > 0) {
         timeout = setTimeout(() => {
           setDisplayedText(prev => prev.slice(0, -1));
@@ -122,14 +122,14 @@ const Hero = () => {
         <div className="flex flex-col gap-4 items-center">
           <motion.h1 
             variants={itemVariants}
-            className="text-4xl md:text-6xl lg:text-8xl font-display font-bold text-foreground tracking-tight mb-2"
+            className="text-4xl md:text-6xl lg:text-8xl font-display font-bold text-foreground tracking-tight mb-6"
           >
             {questionText}
           </motion.h1>
           
           <motion.h2
             variants={itemVariants}
-            className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-foreground tracking-tight mb-4"
+            className="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-foreground tracking-tight mb-4"
           >
             {staticText}
           </motion.h2>
