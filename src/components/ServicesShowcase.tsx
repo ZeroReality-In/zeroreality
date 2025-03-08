@@ -31,21 +31,6 @@ const ServicesShowcase = () => {
   const bubbleX = useTransform(scrollYProgress, [0, 0.5, 1], [0, 10, 20]); // Enhanced horizontal movement
   const bubbleScale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.9, 1.1, 1.2, 1]); // Scale animation
 
-  // Calculate service item animations based on scroll
-  const getServiceVariants = (index) => {
-    return {
-      hidden: { x: 50, opacity: 0 },
-      visible: (progress) => ({
-        x: 0,
-        opacity: 1,
-        transition: { 
-          delay: 0.1 * index * progress, 
-          duration: 0.5 
-        }
-      })
-    };
-  };
-
   return (
     <motion.div 
       ref={containerRef}
@@ -64,13 +49,13 @@ const ServicesShowcase = () => {
                 <motion.div
                   key={index}
                   className="font-display text-3xl md:text-4xl xl:text-5xl font-bold text-black"
-                  variants={getServiceVariants(index)}
-                  initial="hidden"
-                  custom={scrollYProgress}
-                  animate={useTransform(scrollYProgress, 
-                    [0, 0.2 + (index * 0.05)], 
-                    ["hidden", "visible"]
-                  )}
+                  initial={{ x: 50, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  viewport={{ once: false, amount: 0.1 }}
+                  transition={{ 
+                    delay: 0.1 * index, 
+                    duration: 0.5 
+                  }}
                 >
                   {service}
                 </motion.div>
