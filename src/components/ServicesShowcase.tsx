@@ -38,17 +38,17 @@ const ServicesShowcase = () => {
       style={{ opacity, scale }}
     >
       <div className="flex justify-center items-center">
-        <div className="relative w-full max-w-5xl"> 
+        <div className="relative w-full max-w-4xl mx-auto"> 
           {/* Green rectangle background */}
           <motion.div 
-            className="bg-neon-green rounded-[2.5rem] p-8 pt-12 pb-12 relative z-10 max-w-5xl mx-auto flex justify-end" 
+            className="bg-neon-green rounded-[2.5rem] p-8 pt-12 pb-12 relative z-10 mx-auto flex justify-end" 
             style={{ y: boxY }}
           >
             <motion.div className="flex flex-col items-end text-right space-y-4 w-3/4 md:w-2/3 lg:w-1/2">
               {services.map((service, index) => (
                 <motion.div
                   key={index}
-                  className="font-display text-3xl md:text-4xl xl:text-5xl font-bold text-black"
+                  className="font-display text-2xl md:text-3xl xl:text-4xl font-bold text-black"
                   initial={{ x: 50, opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
                   viewport={{ once: false, amount: 0.1 }}
@@ -65,7 +65,7 @@ const ServicesShowcase = () => {
 
           {/* "WE OFFER" bubble - now with enhanced dynamic movement */}
           <motion.div
-            className="absolute -left-10 top-20 md:-left-20 md:top-32 z-20 bg-black rounded-full p-6 md:p-8 border-2 border-[#9b87f5]"
+            className="absolute -left-8 top-20 md:-left-16 md:top-32 z-20 bg-black rounded-full p-4 md:p-6 border-2 border-[#9b87f5]"
             style={{ 
               y: bubbleY,
               x: bubbleX,
@@ -73,7 +73,7 @@ const ServicesShowcase = () => {
               scale: bubbleScale
             }}
           >
-            <span className="font-display text-2xl md:text-4xl font-bold text-white whitespace-nowrap">
+            <span className="font-display text-xl md:text-2xl font-bold text-white whitespace-nowrap">
               WE OFFER 🏄
             </span>
           </motion.div>
