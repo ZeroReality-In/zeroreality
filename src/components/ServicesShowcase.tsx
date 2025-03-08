@@ -36,19 +36,19 @@ const ServicesShowcase = () => {
       style={{ opacity, scale }}
     >
       <div className="flex justify-center items-center">
-        <div className="relative w-full max-w-xl"> {/* Increased from max-w-md to max-w-xl */}
-          {/* Green rectangle background - made bigger */}
+        <div className="relative w-full max-w-xl"> 
+          {/* Green rectangle background */}
           <motion.div 
             className="bg-neon-green rounded-[2.5rem] p-8 pt-12 pb-12 relative z-10 max-w-xl mx-auto" 
             style={{ y: boxY }}
           >
             <motion.div 
-              className="flex flex-col items-end text-right space-y-3" /* Increased space-y from 1 to 3 */
+              className="flex flex-col items-end text-right space-y-4" /* Increased space-y from 3 to 4 */
             >
               {services.map((service, index) => (
                 <motion.div
                   key={index}
-                  className="font-display text-2xl md:text-3xl xl:text-4xl font-bold text-black" /* Increased font sizes */
+                  className="font-display text-3xl md:text-4xl xl:text-5xl font-bold text-black" /* Increased font sizes further */
                   initial={{ x: 50, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.8 + (index * 0.1), duration: 0.5 }}
@@ -71,7 +71,7 @@ const ServicesShowcase = () => {
               rotate: bubbleRotate // Keep the angle fixed
             }}
           >
-            <span className="font-display text-xl md:text-3xl font-bold text-white whitespace-nowrap">
+            <span className="font-display text-2xl md:text-4xl font-bold text-white whitespace-nowrap">
               WE OFFER 🏄
             </span>
           </motion.div>
