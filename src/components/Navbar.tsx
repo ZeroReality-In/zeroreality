@@ -43,15 +43,15 @@ const Navbar = () => {
       initial="hidden" 
       animate="visible" 
       variants={navVariants} 
-      className="fixed top-0 left-0 right-0 z-50 px-6 py-4 md:px-12 backdrop-blur-sm bg-background/70"
+      className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 md:px-12 py-3 sm:py-4 backdrop-blur-sm bg-background/70"
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <motion.div variants={itemVariants} className="flex items-center">
-          <span className="text-foreground text-2xl font-bold">ZERO REALITY</span>
+          <span className="text-foreground text-lg sm:text-xl md:text-2xl font-bold">ZERO REALITY</span>
         </motion.div>
         
         {isMobile ? (
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             <ThemeToggle />
             <Sheet>
               <SheetTrigger asChild>
@@ -72,7 +72,7 @@ const Navbar = () => {
             </Sheet>
           </div>
         ) : (
-          <motion.div variants={itemVariants} className="flex items-center gap-8">
+          <motion.div variants={itemVariants} className="flex items-center gap-4 md:gap-8">
             <NavItem text="SERVICES" />
             <NavItem text="WORK" />
             <NavItem text="PRICING" />
