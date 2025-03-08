@@ -122,21 +122,21 @@ const Hero = () => {
         <div className="flex flex-col gap-4 items-center">
           <motion.h1 
             variants={itemVariants}
-            className="text-4xl md:text-6xl lg:text-8xl font-display font-bold text-foreground tracking-tight mb-2"
+            className="text-4xl md:text-6xl lg:text-8xl font-nabla text-foreground tracking-tight mb-2"
           >
             {questionText}
           </motion.h1>
           
           <motion.h2
             variants={itemVariants}
-            className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-foreground tracking-tight mb-4"
+            className="text-4xl md:text-6xl lg:text-7xl font-orbitron font-bold text-foreground tracking-tight mb-4"
           >
             {staticText}
           </motion.h2>
           
           <motion.div 
             variants={itemVariants}
-            className="text-4xl md:text-6xl lg:text-8xl font-display font-bold text-neon-green tracking-tight flex items-center"
+            className="text-4xl md:text-6xl lg:text-8xl font-glitch font-bold text-neon-green tracking-tight flex items-center"
           >
             <span>{displayedText}</span>
             <span className={`ml-1 w-1 h-16 bg-neon-green inline-block ${showCursor ? 'opacity-100' : 'opacity-0'}`}></span>
