@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
@@ -40,7 +41,8 @@ const Hero = () => {
         }, 50);
       } else {
         timeout = setTimeout(() => {
-          setCurrentTextIndex((prev) => (prev + 1) % serviceTexts.length);
+          const nextIndex = (currentTextIndex + 1) % serviceTexts.length;
+          setCurrentTextIndex(nextIndex);
           setIsTyping(true);
         }, 500);
       }
@@ -48,6 +50,16 @@ const Hero = () => {
 
     return () => clearTimeout(timeout);
   }, [displayedText, currentTextIndex, isTyping, serviceTexts]);
+
+  // Console log to debug the animation state
+  useEffect(() => {
+    console.log({
+      currentTextIndex,
+      displayedText,
+      isTyping,
+      currentService: serviceTexts[currentTextIndex]
+    });
+  }, [currentTextIndex, displayedText, isTyping, serviceTexts]);
 
   const containerVariants = {
     hidden: {
