@@ -1,6 +1,6 @@
 
-import { motion } from "framer-motion";
-import React from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 const ServicesShowcase = () => {
   const services = [
@@ -14,21 +14,28 @@ const ServicesShowcase = () => {
     "Prototyping"
   ];
 
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const boxY = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.8, 1], [0, 1, 1, 0.3]);
+  const scale = useTransform(scrollYProgress, [0, 0.3, 0.8, 1], [0.9, 1, 1, 0.95]);
+
   return (
     <motion.div 
-      className="relative mt-16 md:mt-32"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.5, duration: 0.8 }}
+      ref={containerRef}
+      className="relative mt-16 md:mt-32 pb-32"
+      style={{ opacity, scale }}
     >
       <div className="flex justify-center items-center">
         <div className="relative w-full max-w-3xl">
           {/* Green rectangle background */}
           <motion.div 
             className="bg-neon-green rounded-[2.5rem] p-12 pt-16 pb-16 relative z-10"
-            initial={{ scale: 0.9 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.7, duration: 0.5 }}
+            style={{ y: boxY }}
           >
             <motion.div 
               className="flex flex-col items-end text-right space-y-2"
@@ -59,12 +66,13 @@ const ServicesShowcase = () => {
             </span>
           </motion.div>
 
-          {/* Pixel cursor */}
+          {/* Floating elements */}
           <motion.div
             className="absolute -right-20 -bottom-20 z-20"
-            initial={{ opacity: 0, x: -50, y: -50 }}
-            animate={{ opacity: 1, x: 0, y: 0 }}
-            transition={{ delay: 1.5, duration: 0.8 }}
+            style={{ 
+              y: useTransform(scrollYProgress, [0, 1], [0, -100]),
+              rotate: useTransform(scrollYProgress, [0, 1], [0, 20]) 
+            }}
           >
             <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M40 0H20V20H0V40H20V60H40V40H60V20H40V0Z" fill="#8F7AFF"/>
