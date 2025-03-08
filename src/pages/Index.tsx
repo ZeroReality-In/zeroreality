@@ -1,8 +1,8 @@
-
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import ServicesShowcase from "@/components/ServicesShowcase";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -17,7 +17,7 @@ const Index = () => {
   }, []);
   
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-x-hidden">
       <AnimatePresence>
         {isLoading ? (
           <LoadingScreen key="loading" />
@@ -31,7 +31,10 @@ const Index = () => {
             className="min-h-screen bg-black"
           >
             <Navbar />
-            <Hero />
+            <div className="pb-32">
+              <Hero />
+              <ServicesShowcase />
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
