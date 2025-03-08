@@ -47,7 +47,7 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <motion.div variants={itemVariants} className="flex items-center">
-          <span className="text-foreground text-2xl font-bold">ZERO REALITY</span>
+          <span className="text-foreground text-2xl font-bold font-hitchcut">ZERO REALITY</span>
         </motion.div>
         
         {isMobile ? (
