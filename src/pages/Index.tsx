@@ -65,7 +65,7 @@ const LoadingScreen = () => {
         className="flex flex-col items-center"
       >
         <motion.div 
-          className="text-4xl font-bold text-foreground mb-4 font-hitchcut" 
+          className="text-4xl font-bold text-foreground mb-4" 
           animate={{ opacity: [0.5, 1, 0.5] }} 
           transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
         >
