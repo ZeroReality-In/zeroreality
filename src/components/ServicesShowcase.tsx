@@ -31,7 +31,7 @@ const ServicesShowcase = () => {
           <motion.div className="bg-neon-green rounded-[2.5rem] p-8 pt-12 pb-12 relative z-10 max-w-xl mx-auto" style={{
           y: boxY
         }}>
-            <motion.div className="flex flex-col items-center text-right space-y-4">
+            <motion.div className="flex flex-col items-center text-center space-y-4">
               {services.map((service, index) => <motion.div key={index} className="font-display text-3xl md:text-4xl xl:text-5xl font-bold text-black" initial={{
               x: 50,
               opacity: 0
