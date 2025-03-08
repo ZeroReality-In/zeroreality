@@ -24,9 +24,10 @@ const ServicesShowcase = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.3, 0.8, 1], [0, 1, 1, 0.3]);
   const scale = useTransform(scrollYProgress, [0, 0.3, 0.8, 1], [0.9, 1, 1, 0.95]);
   
-  // New transformations for the "WE OFFER" bubble
-  const bubbleRotate = useTransform(scrollYProgress, [0, 1], [-5, 5]);
-  const bubbleY = useTransform(scrollYProgress, [0, 1], [0, -20]);
+  // Enhanced transformations for the "WE OFFER" bubble - fixed angle with movement
+  const bubbleRotate = -5; // Fixed rotation angle
+  const bubbleY = useTransform(scrollYProgress, [0, 1], [0, -40]); // Enhanced vertical movement
+  const bubbleX = useTransform(scrollYProgress, [0, 1], [0, 20]); // Added horizontal movement
 
   return (
     <motion.div 
@@ -58,15 +59,16 @@ const ServicesShowcase = () => {
             </motion.div>
           </motion.div>
 
-          {/* "WE OFFER" bubble - now with rotation and border */}
+          {/* "WE OFFER" bubble - now with fixed angle and enhanced movement */}
           <motion.div
             className="absolute -left-10 top-20 md:-left-32 md:top-32 z-20 bg-black rounded-full p-6 md:p-8 border-2 border-[#9b87f5]"
             initial={{ scale: 0, rotate: -20 }}
-            animate={{ scale: 1, rotate: 0 }}
+            animate={{ scale: 1, rotate: bubbleRotate }} 
             transition={{ delay: 1.2, duration: 0.5, type: "spring" }}
             style={{ 
               y: bubbleY,
-              rotate: bubbleRotate
+              x: bubbleX,
+              rotate: bubbleRotate // Keep the angle fixed
             }}
           >
             <span className="font-display text-xl md:text-3xl font-bold text-white whitespace-nowrap">
