@@ -5,8 +5,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 
 const ProjectsCarousel = () => {
@@ -68,13 +66,9 @@ const ProjectsCarousel = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="flex justify-end gap-2 mt-6">
-            <CarouselPrevious className="relative static xl:absolute left-0 top-1/2 h-10 w-10 border-white/20 text-white hover:bg-white/10 hover:text-white" />
-            <CarouselNext className="relative static xl:absolute right-0 top-1/2 h-10 w-10 border-white/20 text-white hover:bg-white/10 hover:text-white" />
-          </div>
         </Carousel>
         
-        {/* Process visualization - horizontal line with dots */}
+        {/* Process visualization - continuous process line with dots */}
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -82,10 +76,49 @@ const ProjectsCarousel = () => {
           viewport={{ once: true }}
           className="mt-16 relative"
         >
-          <div className="h-px w-full bg-white/30"></div>
+          <div className="h-px w-full bg-white/30 relative">
+            {/* Arrow animation for continuous flow */}
+            <motion.div 
+              className="absolute inset-0 h-full bg-neon-green"
+              initial={{ width: "0%" }}
+              whileInView={{ width: "100%" }}
+              transition={{ 
+                duration: 3,
+                ease: "easeInOut",
+              }}
+              viewport={{ once: true }}
+            />
+          </div>
           <div className="absolute top-0 left-0 flex justify-between w-full">
-            {items.map((_, index) => (
-              <div key={index} className="w-3 h-3 rounded-full bg-neon-green -translate-y-1/2"></div>
+            {items.map((item, index) => (
+              <div key={index} className="flex flex-col items-center">
+                <div className="w-3 h-3 rounded-full bg-neon-green -translate-y-1/2 relative z-10">
+                  {/* Pulse effect for each step */}
+                  <motion.div 
+                    className="absolute inset-0 rounded-full bg-neon-green/50"
+                    animate={{ 
+                      scale: [1, 1.5, 1],
+                      opacity: [0.7, 0.2, 0.7]
+                    }}
+                    transition={{
+                      duration: 2,
+                      ease: "easeInOut",
+                      delay: index * 0.5,
+                      repeat: Infinity,
+                      repeatDelay: 1
+                    }}
+                  />
+                </div>
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="text-xs text-white/70 mt-2"
+                >
+                  {item.text}
+                </motion.div>
+              </div>
             ))}
           </div>
         </motion.div>
