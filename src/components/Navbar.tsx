@@ -34,10 +34,7 @@ const Navbar = () => {
 REALITY</span>
         </motion.div>
         
-        <motion.div variants={itemVariants} className="flex items-center space-x-2 p-1 px-4 rounded-full bg-secondary/80 backdrop-blur-md border border-white/10">
-          <span className="h-5 w-5 flex items-center justify-center bg-neon-green rounded-full text-xs">✓</span>
-          <span className="text-white/80 text-sm">Design Subscription for Businesses</span>
-        </motion.div>
+        
         
         <motion.div variants={itemVariants} className="hidden md:flex items-center gap-8">
           <NavItem text="SERVICES" />
