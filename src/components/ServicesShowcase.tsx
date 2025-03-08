@@ -75,20 +75,6 @@ const ServicesShowcase = () => {
               WE OFFER 🏄
             </span>
           </motion.div>
-
-          {/* Floating plus elements - repositioned to not overlap with text */}
-          <motion.div
-            className="absolute right-[-20%] bottom-[-15%] z-20 w-32 h-32 md:w-48 md:h-48"
-            style={{ 
-              y: useTransform(scrollYProgress, [0, 1], [0, -100]),
-              rotate: useTransform(scrollYProgress, [0, 1], [0, 20]) 
-            }}
-          >
-            <svg width="100%" height="100%" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M40 0H20V20H0V40H20V60H40V40H60V20H40V0Z" fill="#8F7AFF"/>
-              <path d="M100 40H80V60H60V80H80V100H100V80H120V60H100V40Z" fill="#8F7AFF"/>
-            </svg>
-          </motion.div>
         </div>
       </div>
     </motion.div>
