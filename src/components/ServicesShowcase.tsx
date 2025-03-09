@@ -38,13 +38,13 @@ const ServicesShowcase = () => {
       style={{ opacity, scale }}
     >
       <div className="flex justify-center items-center">
-        <div className="relative w-full max-w-5xl"> 
+        <div className="relative w-full max-w-xl"> 
           {/* Green rectangle background */}
           <motion.div 
-            className="bg-neon-green rounded-[2.5rem] p-8 pt-12 pb-12 relative z-10 max-w-5xl mx-auto flex justify-end" 
+            className="bg-neon-green rounded-[2.5rem] p-8 pt-12 pb-12 relative z-10 max-w-xl mx-auto" 
             style={{ y: boxY }}
           >
-            <motion.div className="flex flex-col items-end text-right space-y-4 w-3/4 md:w-2/3 lg:w-1/2">
+            <motion.div className="flex flex-col items-center text-center space-y-4">
               {services.map((service, index) => (
                 <motion.div
                   key={index}
@@ -65,7 +65,7 @@ const ServicesShowcase = () => {
 
           {/* "WE OFFER" bubble - now with enhanced dynamic movement */}
           <motion.div
-            className="absolute -left-10 top-20 md:-left-20 md:top-32 z-20 bg-black rounded-full p-6 md:p-8 border-2 border-[#9b87f5]"
+            className="absolute -left-10 top-20 md:-left-32 md:top-32 z-20 bg-black rounded-full p-6 md:p-8 border-2 border-[#9b87f5]"
             style={{ 
               y: bubbleY,
               x: bubbleX,
