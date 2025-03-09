@@ -59,7 +59,8 @@ const SelectedWork = () => {
         <motion.div 
           className="rounded-full w-16 h-28 flex items-center justify-center border-2 border-foreground/30 bg-transparent relative cursor-pointer" 
           whileHover={{
-            y: 5
+            y: 5,
+            borderColor: "#9b87f5"
           }} 
           transition={{
             type: "spring",

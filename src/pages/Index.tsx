@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import ServicesShowcase from "@/components/ServicesShowcase";
+import WhyUs from "@/components/WhyUs";
 import TextMarquee from "@/components/TextMarquee";
 import SelectedWork from "@/components/SelectedWork";
 import ProjectShowcase from "@/components/ProjectShowcase";
@@ -110,7 +110,7 @@ const Index = () => {
             <Navbar />
             <div className="pb-32 relative z-10">
               <Hero />
-              <ServicesShowcase />
+              <WhyUs />
               <TextMarquee />
               <SelectedWork />
               <ProjectShowcase />
