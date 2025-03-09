@@ -1,7 +1,5 @@
-
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-
 const ServicesShowcase = () => {
   const services = ["UX & Strategy", "Concepting", "UI Design", "Design Systems", "Brand Identity", "Style Guides", "Websites", "Prototyping"];
   const containerRef = useRef(null);
@@ -57,16 +55,13 @@ const ServicesShowcase = () => {
             </motion.div>
           </motion.div>
 
-          {/* "WE OFFER" bubble - now with more oval shape and better positioning */}
-          <motion.div 
-            className="absolute -left-16 -top-10 md:-left-36 md:-top-6 z-20 bg-black px-8 py-5 rounded-[50px] border-2 border-[#9b87f5]" 
-            style={{
-              y: bubbleY,
-              x: bubbleX,
-              rotate: bubbleRotate,
-              scale: bubbleScale
-            }}
-          >
+          {/* "WE OFFER" bubble - now with enhanced dynamic movement */}
+          <motion.div className="absolute -left-10 top-20 md:-left-32 md:top-32 z-20 bg-black rounded-full p-6 md:p-8 border-2 border-[#9b87f5]" style={{
+          y: bubbleY,
+          x: bubbleX,
+          rotate: bubbleRotate,
+          scale: bubbleScale
+        }}>
             <span className="font-display text-2xl md:text-4xl font-bold text-white whitespace-nowrap">
               WE OFFER 🏄
             </span>
@@ -75,5 +70,4 @@ const ServicesShowcase = () => {
       </div>
     </motion.div>;
 };
-
 export default ServicesShowcase;
