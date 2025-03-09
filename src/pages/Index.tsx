@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import Navbar from "@/components/Navbar";
@@ -74,6 +73,7 @@ const Index = () => {
                   height="100" 
                   fill={theme === 'dark' ? "#8F7AFF" : "#7B5AF5"} 
                   fillOpacity={theme === 'dark' ? "0.1" : "0.25"}
+                  transform="rotate(45 50 50)"
                 />
                 <rect 
                   x="25" 
@@ -82,6 +82,7 @@ const Index = () => {
                   height="50" 
                   fill={theme === 'dark' ? "#8F7AFF" : "#7B5AF5"} 
                   fillOpacity={theme === 'dark' ? "0.2" : "0.4"}
+                  transform="rotate(45 50 50)"
                 />
               </svg>
             </motion.div>
