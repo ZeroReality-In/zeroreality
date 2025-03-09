@@ -30,7 +30,7 @@ const BookCall = () => {
     }
   };
   const features = ["Get clarity on what you really want", "Custom-built solutions for your needs", "Scalable web & mobile applications", "Seamless AI & automation integration", "Transparent, async communication"];
-  return <section id="book-call" className="py-24 md:py-32 px-6 relative overflow-hidden bg-background">
+  return <section id="book-call" className="py-24 px-6 relative overflow-hidden bg-background md:py-[85px]">
       <div className="max-w-7xl mx-auto relative">
         {/* Left side decoration - rotated radial lines */}
         <motion.div className="absolute left-0 bottom-0 hidden lg:block" initial={{
