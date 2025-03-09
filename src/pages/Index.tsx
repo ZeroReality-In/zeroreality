@@ -44,14 +44,18 @@ const Index = () => {
             {/* Floating objects with higher opacity and more visible colors in light mode */}
             <motion.div 
               className="fixed left-[10%] top-[20%] w-16 h-16 md:w-24 md:h-24 z-0 pointer-events-none"
-              style={{ y: translateY1, rotate: rotate1 }}
+              initial={{ y: 0, rotate: 0 }}
               animate={{ 
                 y: ["0%", "-15%", "0%"],
                 rotate: [0, 180, 360]
               }}
               transition={{
-                y: { duration: 8, repeat: Infinity, ease: "easeInOut" },
+                y: { duration: 8, repeat: Infinity, ease: "easeInOut", repeatType: "mirror" },
                 rotate: { duration: 20, repeat: Infinity, ease: "linear" }
+              }}
+              style={{
+                translateY: translateY1,
+                rotateZ: rotate1,
               }}
             >
               <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -74,14 +78,18 @@ const Index = () => {
             
             <motion.div 
               className="fixed right-[15%] top-[60%] w-20 h-20 md:w-32 md:h-32 z-0 pointer-events-none"
-              style={{ y: translateY2, rotate: rotate2 }}
+              initial={{ y: 0, rotate: 0 }}
               animate={{ 
                 y: ["0%", "15%", "0%"],
                 rotate: [0, -180, -360]
               }}
               transition={{
-                y: { duration: 10, repeat: Infinity, ease: "easeInOut" },
+                y: { duration: 10, repeat: Infinity, ease: "easeInOut", repeatType: "mirror" },
                 rotate: { duration: 25, repeat: Infinity, ease: "linear" }
+              }}
+              style={{
+                translateY: translateY2,
+                rotateZ: rotate2,
               }}
             >
               <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -104,7 +112,7 @@ const Index = () => {
             
             <motion.div 
               className="fixed right-[5%] top-[15%] w-12 h-12 md:w-16 md:h-16 z-0 pointer-events-none"
-              style={{ y: translateY3 }}
+              initial={{ x: 0, y: 0, scale: 1, rotate: 0 }}
               animate={{ 
                 x: ["0%", "10%", "0%", "-10%", "0%"],
                 y: ["0%", "-10%", "0%", "10%", "0%"],
@@ -112,10 +120,13 @@ const Index = () => {
                 rotate: [0, 60, 120, 180, 240, 300, 360]
               }}
               transition={{
-                x: { duration: 12, repeat: Infinity, ease: "easeInOut" },
-                y: { duration: 8, repeat: Infinity, ease: "easeInOut" },
-                scale: { duration: 15, repeat: Infinity, ease: "easeInOut" },
+                x: { duration: 12, repeat: Infinity, ease: "easeInOut", repeatType: "loop" },
+                y: { duration: 8, repeat: Infinity, ease: "easeInOut", repeatType: "loop" },
+                scale: { duration: 15, repeat: Infinity, ease: "easeInOut", repeatType: "loop" },
                 rotate: { duration: 30, repeat: Infinity, ease: "linear" }
+              }}
+              style={{
+                translateY: translateY3,
               }}
             >
               <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
