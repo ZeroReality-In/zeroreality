@@ -86,7 +86,11 @@ const Navbar = () => {
                 <div className="flex flex-col gap-6 mt-10">
                   <NavItem text="SERVICES" onClick={() => scrollToSection('services-showcase')} />
                   <NavItem text="WORK" onClick={() => scrollToSection('selected-work')} />
-                  <Button className="bg-neon-green hover:bg-neon-green/90 text-black rounded-full font-medium">
+                  <NavItem text="WHY US" onClick={() => scrollToSection('why-us')} />
+                  <Button 
+                    className="bg-neon-green hover:bg-neon-green/90 text-black rounded-full font-medium"
+                    onClick={() => scrollToSection('book-call')}
+                  >
                     <Calendar className="mr-2 h-4 w-4" /> BOOK A CALL
                   </Button>
                 </div>
@@ -97,8 +101,12 @@ const Navbar = () => {
           <motion.div variants={itemVariants} className="flex items-center gap-8">
             <NavItem text="SERVICES" onClick={() => scrollToSection('services-showcase')} />
             <NavItem text="WORK" onClick={() => scrollToSection('selected-work')} />
+            <NavItem text="WHY US" onClick={() => scrollToSection('why-us')} />
             <ThemeToggle />
-            <Button className="bg-neon-green hover:bg-neon-green/90 text-black rounded-full font-medium">
+            <Button 
+              className="bg-neon-green hover:bg-neon-green/90 text-black rounded-full font-medium"
+              onClick={() => scrollToSection('book-call')}
+            >
               <Calendar className="mr-2 h-4 w-4" /> BOOK A CALL
             </Button>
           </motion.div>
