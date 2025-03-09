@@ -40,7 +40,7 @@ const PricingSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             viewport={{ once: true }}
-            className="rounded-3xl bg-black border-2 border-neon-green p-8"
+            className="rounded-3xl bg-black border-2 border-neon-green p-8 relative overflow-hidden"
           >
             <h3 className="text-3xl font-bold mb-4 text-neon-green">Standard</h3>
             <p className="text-white/80 mb-6">
@@ -77,7 +77,13 @@ const PricingSection = () => {
             </div>
             
             <Button 
-              className="w-full bg-neon-green text-black font-medium text-lg py-6 flex items-center justify-center gap-2"
+              className="w-full bg-neon-green hover:bg-neon-green/90 text-black font-medium text-lg py-6 flex items-center justify-center gap-2"
+              onClick={() => {
+                const bookingSection = document.getElementById('booking-section');
+                if (bookingSection) {
+                  bookingSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
             >
               Book an Intro Call <ArrowRight className="ml-1" />
             </Button>
@@ -89,7 +95,7 @@ const PricingSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
             viewport={{ once: true }}
-            className="rounded-3xl bg-black border-2 border-[#9b87f5] p-8"
+            className="rounded-3xl bg-black border-2 border-[#9b87f5] p-8 relative overflow-hidden"
           >
             <h3 className="text-3xl font-bold mb-4 text-[#9b87f5]">Project-Based</h3>
             <p className="text-white/80 mb-6">
@@ -126,7 +132,13 @@ const PricingSection = () => {
             </div>
             
             <Button 
-              className="w-full bg-[#9b87f5] text-black font-medium text-lg py-6 flex items-center justify-center gap-2"
+              className="w-full bg-[#9b87f5] hover:bg-[#9b87f5]/90 text-black font-medium text-lg py-6 flex items-center justify-center gap-2"
+              onClick={() => {
+                const bookingSection = document.getElementById('booking-section');
+                if (bookingSection) {
+                  bookingSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
             >
               Book an Intro Call <ArrowRight className="ml-1" />
             </Button>
