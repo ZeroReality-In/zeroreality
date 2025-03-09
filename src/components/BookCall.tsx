@@ -38,11 +38,30 @@ const BookCall = () => {
 
   return (
     <section id="book-call" className="py-24 md:py-32 px-6 relative overflow-hidden bg-background">
-      <div className="max-w-7xl mx-auto flex flex-col items-center justify-center">
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-24 w-full">
-          {/* Left side - Form content */}
+      <div className="max-w-7xl mx-auto relative">
+        {/* Left side decoration */}
+        <motion.div 
+          className="absolute left-0 top-1/2 -translate-y-1/2 hidden lg:block"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 0.8, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+        >
+          <div className="relative w-[200px] h-[200px]">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="100" cy="100" r="95" fill="#0D1900" stroke="#ADFF00" strokeWidth="1" opacity="0.6" />
+              <circle cx="40" cy="160" r="15" stroke="#ADFF00" strokeWidth="2" fill="none" />
+              <rect x="65" y="40" width="15" height="15" fill="#ADFF00" opacity="0.7" />
+              <rect x="90" y="40" width="15" height="15" fill="#ADFF00" opacity="0.5" />
+              <line x1="40" y1="100" x2="160" y2="100" stroke="#ADFF00" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            </svg>
+          </div>
+        </motion.div>
+
+        {/* Main content - centered */}
+        <div className="flex justify-center">
           <motion.div 
-            className="w-full lg:w-[580px] border-4 border-neon-green rounded-[2.5rem] p-8 md:p-12 relative"
+            className="w-full max-w-[480px] border-4 border-neon-green rounded-[2.5rem] p-8 md:p-10 relative"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -99,7 +118,7 @@ const BookCall = () => {
               
               <motion.div
                 variants={itemVariants}
-                className="flex justify-center md:justify-start"
+                className="flex justify-center"
               >
                 <Button 
                   className="rounded-full text-black bg-neon-green hover:bg-neon-green/90 text-lg py-6 px-10"
@@ -110,98 +129,30 @@ const BookCall = () => {
               </motion.div>
             </motion.div>
           </motion.div>
-
-          {/* Right side - Illustration */}
-          <motion.div 
-            className="w-full lg:w-[580px] flex justify-center items-center"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-          >
-            <div className="relative">
-              {/* Main illustration background */}
-              <motion.div 
-                className="w-[350px] h-[350px] md:w-[450px] md:h-[450px] rounded-full bg-gradient-to-br from-neon-green/20 to-transparent"
-                initial={{ scale: 0.8 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              />
-              
-              {/* Decorative elements */}
-              <motion.div 
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 md:w-96 md:h-96"
-                initial={{ opacity: 0, rotate: -10 }}
-                whileInView={{ opacity: 1, rotate: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-              >
-                <svg width="100%" height="100%" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  {/* Abstract tech design elements */}
-                  <circle cx="200" cy="200" r="180" stroke="#ADFF00" strokeWidth="2" strokeDasharray="6 6" />
-                  <circle cx="200" cy="200" r="130" stroke="#ADFF00" strokeWidth="2" opacity="0.7" />
-                  <circle cx="200" cy="200" r="80" stroke="#ADFF00" strokeWidth="3" opacity="0.9" />
-                  
-                  {/* Connection lines */}
-                  <line x1="50" y1="200" x2="350" y2="200" stroke="#ADFF00" strokeWidth="1.5" strokeDasharray="4 8" />
-                  <line x1="200" y1="50" x2="200" y2="350" stroke="#ADFF00" strokeWidth="1.5" strokeDasharray="4 8" />
-                  
-                  {/* Node points */}
-                  <circle cx="120" cy="120" r="10" fill="#ADFF00" />
-                  <circle cx="280" cy="120" r="8" fill="#ADFF00" opacity="0.8" />
-                  <circle cx="120" cy="280" r="8" fill="#ADFF00" opacity="0.8" />
-                  <circle cx="280" cy="280" r="10" fill="#ADFF00" />
-                  <circle cx="200" cy="200" r="15" fill="#ADFF00" />
-                </svg>
-              </motion.div>
-              
-              {/* Central icon */}
-              <motion.div 
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-neon-green"
-                initial={{ scale: 0, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.8, type: "spring" }}
-              >
-                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M21 14H14V21H21V14Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M10 14H3V21H10V14Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M21 3H14V10H21V3Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M10 3H3V10H10V3Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </motion.div>
-              
-              {/* Floating technology icons */}
-              <motion.div 
-                className="absolute top-[15%] right-[20%] text-neon-green opacity-80"
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 0.8 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 1.0 }}
-              >
-                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </motion.div>
-              
-              <motion.div 
-                className="absolute bottom-[15%] left-[20%] text-neon-green opacity-80"
-                initial={{ y: -20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 0.8 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 1.2 }}
-              >
-                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 15C15.866 15 19 11.866 19 8C19 4.13401 15.866 1 12 1C8.13401 1 5 4.13401 5 8C5 11.866 8.13401 15 12 15Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M8.21 13.89L7 23L12 20L17 23L15.79 13.88" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </motion.div>
-            </div>
-          </motion.div>
         </div>
+
+        {/* Right side decoration */}
+        <motion.div 
+          className="absolute right-0 top-1/2 -translate-y-1/2 hidden lg:block"
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 0.8, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+        >
+          <div className="relative w-[200px] h-[200px]">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="100" cy="100" r="95" fill="#0D1900" stroke="#ADFF00" strokeWidth="1" opacity="0.6" />
+              <circle cx="100" cy="100" r="60" stroke="#ADFF00" strokeWidth="1" fill="none" />
+              <circle cx="100" cy="100" r="30" stroke="#ADFF00" strokeWidth="1" fill="none" />
+              <circle cx="155" cy="100" r="10" fill="#ADFF00" />
+              <circle cx="100" cy="155" r="6" fill="#ADFF00" opacity="0.7" />
+              <circle cx="100" cy="45" r="6" fill="#ADFF00" opacity="0.7" />
+              <circle cx="165" cy="40" r="5" fill="#ADFF00" opacity="0.5" />
+              <line x1="70" y1="70" x2="130" y2="130" stroke="#ADFF00" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+              <line x1="70" y1="130" x2="130" y2="70" stroke="#ADFF00" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            </svg>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
