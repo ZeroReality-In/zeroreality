@@ -1,7 +1,6 @@
 
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const SelectedWork = () => {
   return (
@@ -28,15 +27,14 @@ const SelectedWork = () => {
         viewport={{ once: true }} 
         className="mt-12 md:mt-16"
       >
-        <Link to="/work" className="inline-block">
-          <motion.div 
-            className="rounded-full w-16 h-28 flex items-center justify-center border border-foreground/20 bg-transparent relative"
-            whileHover={{ y: 5 }} 
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          >
-            <ChevronDown className="w-6 h-6 text-neon-green absolute" />
-          </motion.div>
-        </Link>
+        <motion.div 
+          className="rounded-full w-16 h-28 flex items-center justify-center border-2 border-foreground/30 bg-transparent relative cursor-pointer"
+          whileHover={{ y: 5 }} 
+          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          onClick={() => console.log('Button clicked')}
+        >
+          <ChevronDown className="w-6 h-6 text-[#ADFF00]" />
+        </motion.div>
       </motion.div>
     </div>
   );
