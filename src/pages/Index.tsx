@@ -9,6 +9,7 @@ import WhyUs from "@/components/WhyUs";
 import SelectedWork from "@/components/SelectedWork";
 import ProjectShowcase from "@/components/ProjectShowcase";
 import BookCall from "@/components/BookCall";
+import Footer from "@/components/Footer";
 import { useTheme } from "@/components/ThemeProvider";
 
 const Index = () => {
@@ -110,7 +111,7 @@ const Index = () => {
             </motion.div>
             
             <Navbar />
-            <div className="pb-32 relative z-10">
+            <div className="relative z-10">
               <Hero />
               <ServicesShowcase />
               <TextMarquee />
@@ -118,6 +119,7 @@ const Index = () => {
               <ProjectShowcase />
               <WhyUs />
               <BookCall />
+              <Footer />
             </div>
           </motion.div>
         )}
