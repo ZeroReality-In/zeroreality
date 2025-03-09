@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { ArrowRight, Check, Circle, Triangle, PlusCircle, Square, Hexagon } from "lucide-react";
 import { Button } from "./ui/button";
@@ -173,8 +174,8 @@ const BookCall = () => {
               </motion.div>
               
               <motion.div variants={itemVariants} className="flex justify-center">
-                <Button className="rounded-full text-black bg-neon-green hover:bg-neon-green/90 text-lg py-6 px-10" size="lg">
-                  <ArrowRight className="mr-2" /> Book an Intro Call
+                <Button className="rounded-full text-black bg-neon-green hover:bg-neon-green/90 text-lg py-8 px-14 h-auto text-xl font-semibold" size="lg">
+                  <ArrowRight className="mr-2 h-5 w-5" /> Book an Intro Call
                 </Button>
               </motion.div>
             </motion.div>
