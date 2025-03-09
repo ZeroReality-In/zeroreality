@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Calendar } from "lucide-react";
 import { Button } from "./ui/button";
@@ -45,8 +44,27 @@ const Navbar = () => {
       const navbar = document.querySelector('header');
       const navbarHeight = navbar ? navbar.getBoundingClientRect().height : 80;
       
-      // Set different offset for services section
-      const offset = id === 'services-showcase' ? navbarHeight + 40 : navbarHeight + 20;
+      // Set specific offsets depending on the section
+      let offset = navbarHeight;
+      
+      if (id === 'services-showcase') {
+        offset = navbarHeight + 40;
+      } else if (id === 'book-call') {
+        // Center the book-call section in the viewport without any offset
+        const sectionHeight = section.getBoundingClientRect().height;
+        const windowHeight = window.innerHeight;
+        
+        // If section is shorter than window, center it, otherwise just scroll to top with small offset
+        if (sectionHeight < windowHeight) {
+          offset = (windowHeight - sectionHeight) / 2;
+          // Make sure we still account for the navbar
+          offset = Math.max(offset, navbarHeight);
+        } else {
+          offset = navbarHeight + 20;
+        }
+      } else {
+        offset = navbarHeight + 20;
+      }
       
       // Get the top position of the target section
       const sectionTop = section.getBoundingClientRect().top + window.scrollY;
