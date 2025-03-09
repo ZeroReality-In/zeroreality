@@ -15,7 +15,7 @@ const SelectedWork = () => {
   };
 
   return (
-    <div id="selected-work" className="relative w-full bg-background flex flex-col items-center justify-center py-24 md:py-[215px]">
+    <div id="selected-work" className="relative w-full bg-background flex flex-col items-center justify-center py-24 md:py-[215px] pt-32">
       <motion.div 
         initial={{
           opacity: 0,

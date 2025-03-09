@@ -35,7 +35,7 @@ const ServicesShowcase = () => {
     <motion.div 
       id="services-showcase"
       ref={containerRef}
-      className="relative mt-16 md:mt-32 pb-32"
+      className="relative mt-16 md:mt-32 pb-32 pt-24" // Added pt-24 to provide space at the top for better scrolling with fixed header
       style={{ opacity, scale }}
     >
       <div className="flex justify-center items-center">

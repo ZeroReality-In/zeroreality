@@ -39,18 +39,25 @@ const Navbar = () => {
   };
 
   const scrollToSection = (id: string) => {
+    console.log(`Attempting to scroll to section: ${id}`);
     const section = document.getElementById(id);
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+      // Get the height of the navbar to offset the scroll position
+      const navbar = document.querySelector('header');
+      const navbarHeight = navbar ? navbar.getBoundingClientRect().height : 80;
       
-      // Add a slight offset to account for the fixed header
-      const yOffset = -80; 
-      const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({top: y, behavior: 'smooth'});
+      // Get the top position of the target section
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
       
-      console.log(`Scrolling to section: ${id}`);
+      // Scroll with offset
+      window.scrollTo({
+        top: sectionTop - navbarHeight - 20, // Added extra 20px for better spacing
+        behavior: 'smooth'
+      });
+      
+      console.log(`Scrolled to section: ${id}`);
     } else {
-      console.log(`Section with id ${id} not found`);
+      console.error(`Section with id ${id} not found`);
     }
   };
 
