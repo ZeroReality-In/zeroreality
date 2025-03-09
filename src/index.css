@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
@@ -38,6 +39,7 @@
     
     /* New custom color for the plus symbol and borders */
     --purple: 252 100% 74%;
+    --neon-green: 90 100% 50%;
   }
 
   .dark {
@@ -68,6 +70,8 @@
     --border: 0 0% 15%;
     --input: 0 0% 15%;
     --ring: 135 100% 50%;
+    
+    --neon-green: 90 100% 50%;
   }
 
   * {
@@ -75,9 +79,14 @@
     box-sizing: border-box;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+    overflow-x: hidden;
   }
 }
 
@@ -101,4 +110,99 @@
   .text-shadow {
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   }
+  
+  .bg-animated {
+    animation: subtle-bg 8s infinite alternate;
+  }
+  
+  .hover-glow {
+    transition: all 0.3s ease;
+  }
+  
+  .hover-glow:hover {
+    filter: drop-shadow(0 0 8px rgba(173, 255, 0, 0.5));
+  }
+  
+  .float-animation {
+    animation: floating 6s infinite ease-in-out;
+  }
+  
+  .rotate-animation {
+    animation: rotating 12s infinite linear;
+  }
+  
+  .pulse-animation {
+    animation: pulsing 3s infinite ease-in-out;
+  }
+}
+
+@keyframes subtle-bg {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulsing {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+/* Particle animation */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+@keyframes particle-animation {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(var(--tx), var(--ty), 0);
+    opacity: 0;
+  }
+}
+
+/* Add this to make webkit browsers render animations more smoothly */
+* {
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+  transform: translate3d(0, 0, 0);
+  transform: translateZ(0);
 }
