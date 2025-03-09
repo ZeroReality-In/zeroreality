@@ -17,35 +17,18 @@ const Index = () => {
   const { scrollYProgress } = useScroll();
   const { theme } = useTheme();
   
-  // More diverse transform values for existing floating objects
   const translateY1 = useTransform(scrollYProgress, [0, 1], [0, -150]);
   const translateY2 = useTransform(scrollYProgress, [0, 1], [0, -50]);
   const translateY3 = useTransform(scrollYProgress, [0, 1], [0, -200]);
   const translateY4 = useTransform(scrollYProgress, [0, 1], [0, 100]);
   const translateY5 = useTransform(scrollYProgress, [0, 1], [0, -80]);
   const translateY6 = useTransform(scrollYProgress, [0, 1], [0, 150]);
-  const translateY7 = useTransform(scrollYProgress, [0, 1], [0, -120]);
-  const translateY8 = useTransform(scrollYProgress, [0, 1], [0, 60]);
-  
-  // New transform values for additional floating objects
-  const translateY9 = useTransform(scrollYProgress, [0, 1], [0, -90]);
-  const translateY10 = useTransform(scrollYProgress, [0, 1], [0, 110]);
-  const translateY11 = useTransform(scrollYProgress, [0, 1], [0, -180]);
-  const translateY12 = useTransform(scrollYProgress, [0, 1], [0, 75]);
   
   const rotate1 = useTransform(scrollYProgress, [0, 1], [-30, 330]);
   const rotate2 = useTransform(scrollYProgress, [0, 1], [20, -160]);
   const rotate3 = useTransform(scrollYProgress, [0, 1], [0, 180]);
   const rotate4 = useTransform(scrollYProgress, [0, 1], [-15, 45]);
   const rotate5 = useTransform(scrollYProgress, [0, 1], [10, -80]);
-  const rotate6 = useTransform(scrollYProgress, [0, 1], [0, 360]);
-  const rotate7 = useTransform(scrollYProgress, [0, 1], [-20, 90]);
-  
-  // New rotation values for additional floating objects
-  const rotate8 = useTransform(scrollYProgress, [0, 1], [0, 270]);
-  const rotate9 = useTransform(scrollYProgress, [0, 1], [-45, 120]);
-  const rotate10 = useTransform(scrollYProgress, [0, 1], [30, -220]);
-  const rotate11 = useTransform(scrollYProgress, [0, 1], [10, 230]);
 
   // Simulate loading
   useEffect(() => {
@@ -73,15 +56,11 @@ const Index = () => {
             <motion.div 
               className="fixed left-[10%] top-[20%] w-16 h-16 md:w-24 md:h-24 z-0 pointer-events-none"
               style={{ y: translateY1, rotate: rotate1 }}
-              animate={{
-                scale: [1, 1.1, 0.9, 1],
-                opacity: [0.6, 0.8, 0.6],
-                transition: {
-                  duration: 6,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                  ease: "easeInOut"
-                }
+              whileHover={{ scale: 1.2 }}
+              transition={{
+                type: "spring",
+                stiffness: 200,
+                damping: 10
               }}
             >
               <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -106,15 +85,11 @@ const Index = () => {
             <motion.div 
               className="fixed left-[5%] bottom-[15%] w-20 h-20 md:w-32 md:h-32 z-0 pointer-events-none"
               style={{ y: translateY2, rotate: rotate2 }}
-              animate={{
-                x: [0, 10, -10, 0],
-                scale: [1, 0.95, 1.05, 1],
-                transition: {
-                  duration: 8,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                  ease: "easeInOut"
-                }
+              whileHover={{ scale: 1.2 }}
+              transition={{
+                type: "spring",
+                stiffness: 200,
+                damping: 10
               }}
             >
               <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -141,15 +116,11 @@ const Index = () => {
             <motion.div 
               className="fixed right-[5%] top-[15%] w-12 h-12 md:w-16 md:h-16 z-0 pointer-events-none"
               style={{ y: translateY3 }}
-              animate={{
-                rotate: [0, 15, -15, 0],
-                opacity: [0.7, 1, 0.7],
-                transition: {
-                  duration: 7,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                  ease: "easeInOut"
-                }
+              whileHover={{ scale: 1.2 }}
+              transition={{
+                type: "spring",
+                stiffness: 200,
+                damping: 10
               }}
             >
               <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -166,18 +137,16 @@ const Index = () => {
               </svg>
             </motion.div>
             
-            {/* Orange triangle */}
+            {/* New orange triangle */}
             <motion.div 
               className="fixed right-[15%] bottom-[25%] w-14 h-14 md:w-20 md:h-20 z-0 pointer-events-none"
               style={{ y: translateY4, rotate: rotate3 }}
               animate={{
                 scale: [1, 1.1, 1],
-                x: [0, -15, 0, 15, 0],
                 transition: {
-                  duration: 10,
+                  duration: 3,
                   repeat: Infinity,
-                  repeatType: "reverse",
-                  ease: "easeInOut"
+                  repeatType: "reverse"
                 }
               }}
             >
@@ -195,18 +164,16 @@ const Index = () => {
               </svg>
             </motion.div>
             
-            {/* Blue circle */}
+            {/* New blue circle */}
             <motion.div 
               className="fixed left-[20%] top-[70%] w-10 h-10 md:w-16 md:h-16 z-0 pointer-events-none"
               style={{ y: translateY5, rotate: rotate4 }}
               animate={{
                 opacity: [0.5, 0.8, 0.5],
-                scale: [1, 1.15, 0.95, 1],
                 transition: {
-                  duration: 9,
+                  duration: 4,
                   repeat: Infinity,
-                  repeatType: "reverse",
-                  ease: "easeInOut"
+                  repeatType: "reverse"
                 }
               }}
             >
@@ -228,18 +195,16 @@ const Index = () => {
               </svg>
             </motion.div>
             
-            {/* Yellow star */}
+            {/* New small star */}
             <motion.div 
               className="fixed right-[30%] top-[30%] w-8 h-8 md:w-12 md:h-12 z-0 pointer-events-none"
               style={{ y: translateY6, rotate: rotate5 }}
               animate={{
                 scale: [1, 1.2, 0.9, 1],
-                filter: ["drop-shadow(0 0 0 rgba(245, 158, 11, 0))", "drop-shadow(0 0 5px rgba(245, 158, 11, 0.3))", "drop-shadow(0 0 0 rgba(245, 158, 11, 0))"],
                 transition: {
-                  duration: 7,
+                  duration: 5,
                   repeat: Infinity,
-                  repeatType: "reverse",
-                  ease: "easeInOut"
+                  repeatType: "reverse"
                 }
               }}
             >
@@ -252,199 +217,6 @@ const Index = () => {
                 <path 
                   d="M50 20L57.3 44.7H82.7L62.7 60.6L70 85.3L50 69.4L30 85.3L37.3 60.6L17.3 44.7H42.7L50 20Z" 
                   fill={theme === 'dark' ? "#F59E0B" : "#FBBF24"} 
-                  fillOpacity={theme === 'dark' ? "0.2" : "0.4"}
-                />
-              </svg>
-            </motion.div>
-            
-            {/* Red Diamond */}
-            <motion.div 
-              className="fixed left-[40%] top-[10%] w-6 h-6 md:w-10 md:h-10 z-0 pointer-events-none"
-              style={{ y: translateY7, rotate: rotate6 }}
-              animate={{
-                scale: [1, 1.3, 1],
-                opacity: [0.6, 1, 0.6],
-                transition: {
-                  duration: 8,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                  ease: "easeInOut"
-                }
-              }}
-            >
-              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect 
-                  width="70" 
-                  height="70" 
-                  fill={theme === 'dark' ? "#EF4444" : "#F87171"} 
-                  fillOpacity={theme === 'dark' ? "0.1" : "0.25"}
-                  x="15"
-                  y="15"
-                  transform="rotate(45 50 50)"
-                />
-                <rect 
-                  width="40" 
-                  height="40" 
-                  fill={theme === 'dark' ? "#EF4444" : "#F87171"} 
-                  fillOpacity={theme === 'dark' ? "0.2" : "0.4"}
-                  x="30"
-                  y="30"
-                  transform="rotate(45 50 50)"
-                />
-              </svg>
-            </motion.div>
-            
-            {/* Cyan Oval */}
-            <motion.div 
-              className="fixed right-[20%] bottom-[10%] w-12 h-8 md:w-16 md:h-10 z-0 pointer-events-none"
-              style={{ y: translateY8, rotate: rotate7 }}
-              animate={{
-                opacity: [0.5, 0.9, 0.5],
-                x: [0, 15, 0, -15, 0],
-                transition: {
-                  duration: 12,
-                  repeat: Infinity,
-                  repeatType: "mirror",
-                  ease: "easeInOut"
-                }
-              }}
-            >
-              <svg viewBox="0 0 100 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <ellipse 
-                  cx="50" 
-                  cy="35" 
-                  rx="50" 
-                  ry="35" 
-                  fill={theme === 'dark' ? "#06B6D4" : "#22D3EE"} 
-                  fillOpacity={theme === 'dark' ? "0.1" : "0.25"}
-                />
-                <ellipse 
-                  cx="50" 
-                  cy="35" 
-                  rx="30" 
-                  ry="20" 
-                  fill={theme === 'dark' ? "#06B6D4" : "#22D3EE"} 
-                  fillOpacity={theme === 'dark' ? "0.2" : "0.4"}
-                />
-              </svg>
-            </motion.div>
-            
-            {/* NEW: Teal Plus Sign */}
-            <motion.div 
-              className="fixed left-[15%] top-[40%] w-8 h-8 md:w-12 md:h-12 z-0 pointer-events-none"
-              style={{ y: translateY9, rotate: rotate8 }}
-              animate={{
-                scale: [1, 1.15, 0.9, 1],
-                opacity: [0.5, 0.8, 0.5],
-                transition: {
-                  duration: 9.5,
-                  repeat: Infinity,
-                  repeatType: "mirror",
-                  ease: "easeInOut"
-                }
-              }}
-            >
-              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path 
-                  d="M40 0H60V40H100V60H60V100H40V60H0V40H40V0Z" 
-                  fill={theme === 'dark' ? "#14B8A6" : "#2DD4BF"} 
-                  fillOpacity={theme === 'dark' ? "0.1" : "0.25"}
-                />
-                <path 
-                  d="M45 15H55V45H85V55H55V85H45V55H15V45H45V15Z" 
-                  fill={theme === 'dark' ? "#14B8A6" : "#2DD4BF"} 
-                  fillOpacity={theme === 'dark' ? "0.2" : "0.4"}
-                />
-              </svg>
-            </motion.div>
-            
-            {/* NEW: Lime Wave */}
-            <motion.div 
-              className="fixed right-[25%] top-[60%] w-16 h-6 md:w-24 md:h-8 z-0 pointer-events-none"
-              style={{ y: translateY10, rotate: rotate9 }}
-              animate={{
-                scaleX: [1, 1.2, 1, 0.9, 1],
-                scaleY: [1, 0.9, 1.1, 1],
-                opacity: [0.4, 0.7, 0.4],
-                transition: {
-                  duration: 11,
-                  repeat: Infinity,
-                  repeatType: "mirror",
-                  ease: "easeInOut"
-                }
-              }}
-            >
-              <svg viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path 
-                  d="M0 20C10 5 20 35 30 20C40 5 50 35 60 20C70 5 80 35 90 20C100 5 110 35 120 20" 
-                  stroke={theme === 'dark' ? "#84CC16" : "#A3E635"} 
-                  strokeWidth="10"
-                  strokeLinecap="round"
-                  strokeOpacity={theme === 'dark' ? "0.15" : "0.3"}
-                />
-                <path 
-                  d="M0 20C10 5 20 35 30 20C40 5 50 35 60 20C70 5 80 35 90 20C100 5 110 35 120 20" 
-                  stroke={theme === 'dark' ? "#84CC16" : "#A3E635"} 
-                  strokeWidth="5"
-                  strokeLinecap="round"
-                  strokeOpacity={theme === 'dark' ? "0.3" : "0.5"}
-                />
-              </svg>
-            </motion.div>
-            
-            {/* NEW: Rose Pentagon */}
-            <motion.div 
-              className="fixed left-[30%] bottom-[20%] w-10 h-10 md:w-14 md:h-14 z-0 pointer-events-none"
-              style={{ y: translateY11, rotate: rotate10 }}
-              animate={{
-                scale: [1, 1.1, 0.95, 1],
-                filter: ["drop-shadow(0 0 0 rgba(244, 114, 182, 0))", "drop-shadow(0 0 4px rgba(244, 114, 182, 0.3))", "drop-shadow(0 0 0 rgba(244, 114, 182, 0))"],
-                transition: {
-                  duration: 7.5,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                  ease: "easeInOut"
-                }
-              }}
-            >
-              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path 
-                  d="M50 0L97.5528 34.5491L79.3893 90.4509H20.6107L2.44717 34.5491L50 0Z" 
-                  fill={theme === 'dark' ? "#E11D48" : "#FB7185"} 
-                  fillOpacity={theme === 'dark' ? "0.1" : "0.25"}
-                />
-                <path 
-                  d="M50 20L80.9017 44.2705L68.5317 82.7295H31.4683L19.0983 44.2705L50 20Z" 
-                  fill={theme === 'dark' ? "#E11D48" : "#FB7185"} 
-                  fillOpacity={theme === 'dark' ? "0.2" : "0.4"}
-                />
-              </svg>
-            </motion.div>
-            
-            {/* NEW: Violet Cross */}
-            <motion.div 
-              className="fixed right-[10%] top-[45%] w-12 h-12 md:w-14 md:h-14 z-0 pointer-events-none"
-              style={{ y: translateY12, rotate: rotate11 }}
-              animate={{
-                scale: [1, 1.15, 0.9, 1.05, 1],
-                opacity: [0.6, 0.9, 0.6],
-                transition: {
-                  duration: 10,
-                  repeat: Infinity,
-                  repeatType: "mirror",
-                  ease: "easeInOut"
-                }
-              }}
-            >
-              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path 
-                  d="M35 0H65V35H100V65H65V100H35V65H0V35H35V0Z" 
-                  fill={theme === 'dark' ? "#8B5CF6" : "#A78BFA"} 
-                  fillOpacity={theme === 'dark' ? "0.1" : "0.25"}
-                />
-                <path 
-                  d="M40 10H60V40H90V60H60V90H40V60H10V40H40V10Z" 
-                  fill={theme === 'dark' ? "#8B5CF6" : "#A78BFA"} 
                   fillOpacity={theme === 'dark' ? "0.2" : "0.4"}
                 />
               </svg>
@@ -495,8 +267,7 @@ const LoadingScreen = () => {
           animate={{ 
             opacity: [0.5, 1, 0.5],
             scale: [0.98, 1.02, 0.98],
-            rotate: [-1, 1, -1],
-            filter: ["drop-shadow(0 0 0 rgba(255,255,255,0))", "drop-shadow(0 0 8px rgba(173,255,0,0.5))", "drop-shadow(0 0 0 rgba(255,255,255,0))"]
+            rotate: [-1, 1, -1]
           }} 
           transition={{ 
             repeat: Infinity, 
@@ -515,21 +286,20 @@ const LoadingScreen = () => {
           />
         </motion.div>
         
-        {/* Enhanced pulsating dots for loading animation */}
-        <motion.div className="flex mt-4 space-x-3">
+        {/* Added pulsating dots for loading animation */}
+        <motion.div className="flex mt-4 space-x-2">
           {[0, 1, 2].map((index) => (
             <motion.div 
               key={index}
               className="w-2 h-2 bg-neon-green rounded-full"
               animate={{ 
-                scale: [0.8, 1.5, 0.8], 
-                opacity: [0.5, 1, 0.5],
-                boxShadow: ["0 0 0 rgba(173,255,0,0)", "0 0 10px rgba(173,255,0,0.7)", "0 0 0 rgba(173,255,0,0)"]
+                scale: [0.8, 1.2, 0.8], 
+                opacity: [0.5, 1, 0.5] 
               }}
               transition={{ 
                 duration: 1.2, 
                 repeat: Infinity, 
-                delay: index * 0.3 
+                delay: index * 0.2 
               }}
             />
           ))}

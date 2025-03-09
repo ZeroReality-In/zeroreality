@@ -15,33 +15,17 @@ const TextMarquee = () => {
         x: {
           repeat: Infinity,
           repeatType: "loop" as const,
-          duration: 15,
+          duration: 15, // Faster animation
           ease: "linear"
         }
       }
     }
   };
-
-  // Dynamic background animation
-  const bgAnimation = {
-    animate: {
-      background: theme === 'dark' 
-        ? ['rgba(0,0,0,1)', 'rgba(0,0,0,0.98)', 'rgba(0,0,0,1)']
-        : ['rgba(245,245,245,1)', 'rgba(240,240,240,0.98)', 'rgba(245,245,245,1)'],
-      transition: {
-        duration: 8,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }
-    }
-  };
   
   return (
-    <motion.div 
+    <div 
       ref={containerRef}
       className={`relative overflow-hidden w-full py-12 md:py-[141px] ${theme === 'dark' ? 'bg-black' : 'bg-secondary'}`}
-      variants={bgAnimation}
-      animate="animate"
     >
       <div 
         className={`absolute inset-0 w-full h-full pointer-events-none z-10 ${
@@ -82,16 +66,11 @@ const TextMarquee = () => {
                     theme === 'dark' ? 'text-white' : 'text-foreground'
                   }`}
                   animate={{ 
-                    y: [0, -5, 0, -3, 0],
-                    rotate: [-1, 1, -1, 0.5, -1],
-                    filter: [
-                      "drop-shadow(0 0 0px rgba(255,255,255,0))",
-                      "drop-shadow(0 0 10px rgba(255,255,255,0.3))",
-                      "drop-shadow(0 0 0px rgba(255,255,255,0))"
-                    ]
+                    y: [0, -5, 0],
+                    rotate: [-1, 1, -1] 
                   }}
                   transition={{ 
-                    duration: 5, 
+                    duration: 3, 
                     repeat: Infinity, 
                     delay: index * 0.3,
                     ease: "easeInOut"
@@ -104,20 +83,14 @@ const TextMarquee = () => {
                     theme === 'dark' ? 'text-white' : 'text-foreground'
                   }`}
                   animate={{ 
-                    scale: [1, 1.2, 1, 1.1, 1],
-                    rotate: [0, 10, 0, 5, 0],
-                    opacity: [0.7, 1, 0.7, 0.9, 0.7],
-                    filter: theme === 'dark' ? [
-                      "drop-shadow(0 0 0px rgba(173,255,0,0))",
-                      "drop-shadow(0 0 8px rgba(173,255,0,0.3))",
-                      "drop-shadow(0 0 0px rgba(173,255,0,0))"
-                    ] : undefined
+                    scale: [1, 1.2, 1],
+                    rotate: [0, 10, 0],
+                    opacity: [0.7, 1, 0.7]
                   }}
                   transition={{ 
-                    duration: 6, 
+                    duration: 2, 
                     repeat: Infinity,
-                    delay: index * 0.5,
-                    ease: "easeInOut"
+                    delay: index * 0.5
                   }}
                 >
                   ✦
@@ -127,7 +100,7 @@ const TextMarquee = () => {
           </motion.div>
         ))}
       </motion.div>
-    </motion.div>
+    </div>
   );
 };
 
