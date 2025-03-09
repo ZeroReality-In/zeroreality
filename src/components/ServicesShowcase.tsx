@@ -33,6 +33,7 @@ const ServicesShowcase = () => {
 
   return (
     <motion.div 
+      id="services-showcase"
       ref={containerRef}
       className="relative mt-16 md:mt-32 pb-32"
       style={{ opacity, scale }}

@@ -42,6 +42,15 @@ const Navbar = () => {
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
+      
+      // Add a slight offset to account for the fixed header
+      const yOffset = -80; 
+      const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({top: y, behavior: 'smooth'});
+      
+      console.log(`Scrolling to section: ${id}`);
+    } else {
+      console.log(`Section with id ${id} not found`);
     }
   };
 
@@ -69,7 +78,7 @@ const Navbar = () => {
               <SheetContent className="w-[80%] sm:w-[350px]">
                 <div className="flex flex-col gap-6 mt-10">
                   <NavItem text="SERVICES" onClick={() => scrollToSection('services-showcase')} />
-                  <NavItem text="WORK" onClick={() => scrollToSection('project-showcase')} />
+                  <NavItem text="WORK" onClick={() => scrollToSection('selected-work')} />
                   <Button className="bg-neon-green hover:bg-neon-green/90 text-black rounded-full font-medium">
                     <Calendar className="mr-2 h-4 w-4" /> BOOK A CALL
                   </Button>
@@ -80,7 +89,7 @@ const Navbar = () => {
         ) : (
           <motion.div variants={itemVariants} className="flex items-center gap-8">
             <NavItem text="SERVICES" onClick={() => scrollToSection('services-showcase')} />
-            <NavItem text="WORK" onClick={() => scrollToSection('project-showcase')} />
+            <NavItem text="WORK" onClick={() => scrollToSection('selected-work')} />
             <ThemeToggle />
             <Button className="bg-neon-green hover:bg-neon-green/90 text-black rounded-full font-medium">
               <Calendar className="mr-2 h-4 w-4" /> BOOK A CALL
