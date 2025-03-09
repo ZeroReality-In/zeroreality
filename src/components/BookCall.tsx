@@ -39,37 +39,43 @@ const BookCall = () => {
   return (
     <section id="book-call" className="py-24 md:py-32 px-6 relative overflow-hidden bg-background">
       <div className="max-w-7xl mx-auto relative">
-        {/* Left side decoration - more modern abstract lines */}
+        {/* Left side decoration - rotated radial lines */}
         <motion.div 
-          className="absolute left-0 top-1/2 -translate-y-1/2 hidden lg:block"
+          className="absolute left-0 bottom-0 hidden lg:block"
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 0.8, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.3 }}
+          style={{ transform: "rotate(30deg)" }}
         >
           <div className="w-[250px] h-[300px] relative">
             <svg width="250" height="300" viewBox="0 0 250 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-              {/* Abstract tech lines */}
-              <path d="M20 150 L230 150" stroke="#ADFF00" strokeWidth="1.5" strokeDasharray="10 5" opacity="0.6" />
-              <path d="M50 50 L200 250" stroke="#ADFF00" strokeWidth="1.5" strokeDasharray="8 4" opacity="0.7" />
-              <path d="M50 250 L200 50" stroke="#ADFF00" strokeWidth="1.5" strokeDasharray="8 4" opacity="0.7" />
+              {/* Radial lines pattern */}
+              <circle cx="125" cy="150" r="10" fill="#ADFF00" opacity="0.9" />
               
-              {/* Accent elements */}
-              <circle cx="125" cy="150" r="8" fill="#ADFF00" opacity="0.9" />
-              <circle cx="50" cy="250" r="5" fill="#ADFF00" opacity="0.7" />
-              <circle cx="200" cy="50" r="5" fill="#ADFF00" opacity="0.7" />
+              {/* Diagonal lines */}
+              <path d="M125 150 L225 50" stroke="#ADFF00" strokeWidth="1.5" strokeDasharray="6 3" opacity="0.6" />
+              <path d="M125 150 L225 250" stroke="#ADFF00" strokeWidth="1.5" strokeDasharray="6 3" opacity="0.6" />
+              <path d="M125 150 L25 250" stroke="#ADFF00" strokeWidth="1.5" strokeDasharray="6 3" opacity="0.6" />
+              <path d="M125 150 L25 50" stroke="#ADFF00" strokeWidth="1.5" strokeDasharray="6 3" opacity="0.6" />
               
-              {/* Digital nodes */}
-              <rect x="20" y="150" width="5" height="5" fill="#ADFF00" opacity="0.8" />
-              <rect x="225" y="150" width="5" height="5" fill="#ADFF00" opacity="0.8" />
-              <rect x="125" y="50" width="5" height="5" fill="#ADFF00" opacity="0.8" />
-              <rect x="125" y="250" width="5" height="5" fill="#ADFF00" opacity="0.8" />
+              {/* Horizontal and vertical lines */}
+              <path d="M125 150 L225 150" stroke="#ADFF00" strokeWidth="1.5" strokeDasharray="6 3" opacity="0.6" />
+              <path d="M125 150 L25 150" stroke="#ADFF00" strokeWidth="1.5" strokeDasharray="6 3" opacity="0.6" />
+              <path d="M125 150 L125 250" stroke="#ADFF00" strokeWidth="1.5" strokeDasharray="6 3" opacity="0.6" />
+              <path d="M125 150 L125 50" stroke="#ADFF00" strokeWidth="1.5" strokeDasharray="6 3" opacity="0.6" />
               
-              {/* Pulse animation */}
-              <circle cx="125" cy="150" r="20" stroke="#ADFF00" strokeWidth="1" fill="none" opacity="0.4">
-                <animate attributeName="r" from="20" to="40" dur="1.5s" repeatCount="indefinite" />
-                <animate attributeName="opacity" from="0.4" to="0" dur="1.5s" repeatCount="indefinite" />
-              </circle>
+              {/* Accent dots at the end of lines */}
+              <circle cx="225" cy="50" r="5" fill="#ADFF00" opacity="0.7" />
+              <circle cx="225" cy="250" r="5" fill="#ADFF00" opacity="0.7" />
+              <circle cx="25" cy="50" r="5" fill="#ADFF00" opacity="0.7" />
+              <circle cx="25" cy="250" r="5" fill="#ADFF00" opacity="0.7" />
+              
+              {/* Small squares along the lines */}
+              <rect x="175" y="100" width="4" height="4" fill="#ADFF00" opacity="0.8" />
+              <rect x="75" y="100" width="4" height="4" fill="#ADFF00" opacity="0.8" />
+              <rect x="175" y="200" width="4" height="4" fill="#ADFF00" opacity="0.8" />
+              <rect x="75" y="200" width="4" height="4" fill="#ADFF00" opacity="0.8" />
             </svg>
           </div>
         </motion.div>
@@ -147,42 +153,45 @@ const BookCall = () => {
           </motion.div>
         </div>
 
-        {/* Right side decoration - futuristic grid pattern */}
+        {/* Right side decoration - constellation pattern at top right */}
         <motion.div 
-          className="absolute right-0 top-1/2 -translate-y-1/2 hidden lg:block"
+          className="absolute right-10 top-10 hidden lg:block"
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 0.8, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.3 }}
         >
-          <div className="w-[250px] h-[300px] relative">
-            <svg width="250" height="300" viewBox="0 0 250 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-              {/* Grid lines */}
-              <path d="M50 50 H200" stroke="#ADFF00" strokeWidth="1" opacity="0.4" />
-              <path d="M50 100 H200" stroke="#ADFF00" strokeWidth="1" opacity="0.4" />
-              <path d="M50 150 H200" stroke="#ADFF00" strokeWidth="1" opacity="0.4" />
-              <path d="M50 200 H200" stroke="#ADFF00" strokeWidth="1" opacity="0.4" />
-              <path d="M50 250 H200" stroke="#ADFF00" strokeWidth="1" opacity="0.4" />
+          <div className="w-[200px] h-[200px] relative">
+            <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              {/* Grid lines (more subtle) */}
+              <path d="M0 0 H200" stroke="#ADFF00" strokeWidth="0.5" opacity="0.3" />
+              <path d="M0 50 H200" stroke="#ADFF00" strokeWidth="0.5" opacity="0.3" />
+              <path d="M0 100 H200" stroke="#ADFF00" strokeWidth="0.5" opacity="0.3" />
+              <path d="M0 150 H200" stroke="#ADFF00" strokeWidth="0.5" opacity="0.3" />
+              <path d="M0 200 H200" stroke="#ADFF00" strokeWidth="0.5" opacity="0.3" />
               
-              <path d="M50 50 V250" stroke="#ADFF00" strokeWidth="1" opacity="0.4" />
-              <path d="M100 50 V250" stroke="#ADFF00" strokeWidth="1" opacity="0.4" />
-              <path d="M150 50 V250" stroke="#ADFF00" strokeWidth="1" opacity="0.4" />
-              <path d="M200 50 V250" stroke="#ADFF00" strokeWidth="1" opacity="0.4" />
+              <path d="M0 0 V200" stroke="#ADFF00" strokeWidth="0.5" opacity="0.3" />
+              <path d="M50 0 V200" stroke="#ADFF00" strokeWidth="0.5" opacity="0.3" />
+              <path d="M100 0 V200" stroke="#ADFF00" strokeWidth="0.5" opacity="0.3" />
+              <path d="M150 0 V200" stroke="#ADFF00" strokeWidth="0.5" opacity="0.3" />
+              <path d="M200 0 V200" stroke="#ADFF00" strokeWidth="0.5" opacity="0.3" />
               
-              {/* Highlighted intersections */}
-              <circle cx="100" cy="100" r="6" fill="#ADFF00" opacity="0.8" />
-              <circle cx="150" cy="200" r="6" fill="#ADFF00" opacity="0.8" />
-              <circle cx="200" cy="150" r="6" fill="#ADFF00" opacity="0.8" />
-              
-              {/* Animated node */}
-              <circle cx="125" cy="125" r="10" fill="#ADFF00" opacity="0.9">
-                <animate attributeName="opacity" values="0.9;0.5;0.9" dur="2s" repeatCount="indefinite" />
-              </circle>
+              {/* Constellation nodes */}
+              <circle cx="50" cy="50" r="6" fill="#ADFF00" opacity="0.8" />
+              <circle cx="120" cy="80" r="8" fill="#ADFF00" opacity="0.9" />
+              <circle cx="170" cy="40" r="6" fill="#ADFF00" opacity="0.8" />
+              <circle cx="100" cy="150" r="6" fill="#ADFF00" opacity="0.8" />
               
               {/* Connection lines */}
-              <path d="M125 125 L100 100" stroke="#ADFF00" strokeWidth="1.5" opacity="0.6" />
-              <path d="M125 125 L150 200" stroke="#ADFF00" strokeWidth="1.5" opacity="0.6" />
-              <path d="M125 125 L200 150" stroke="#ADFF00" strokeWidth="1.5" opacity="0.6" />
+              <path d="M50 50 L120 80" stroke="#ADFF00" strokeWidth="1.5" opacity="0.7" />
+              <path d="M120 80 L170 40" stroke="#ADFF00" strokeWidth="1.5" opacity="0.7" />
+              <path d="M120 80 L100 150" stroke="#ADFF00" strokeWidth="1.5" opacity="0.7" />
+              
+              {/* Animated pulse */}
+              <circle cx="120" cy="80" r="12" stroke="#ADFF00" strokeWidth="1" opacity="0.4" fill="none">
+                <animate attributeName="r" from="12" to="20" dur="2s" repeatCount="indefinite" />
+                <animate attributeName="opacity" from="0.4" to="0" dur="2s" repeatCount="indefinite" />
+              </circle>
             </svg>
           </div>
         </motion.div>

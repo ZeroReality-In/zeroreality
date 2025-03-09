@@ -19,8 +19,8 @@ const Index = () => {
   const translateY1 = useTransform(scrollYProgress, [0, 1], [0, -150]);
   const translateY2 = useTransform(scrollYProgress, [0, 1], [0, -50]);
   const translateY3 = useTransform(scrollYProgress, [0, 1], [0, -200]);
-  const rotate1 = useTransform(scrollYProgress, [0, 1], [0, 360]);
-  const rotate2 = useTransform(scrollYProgress, [0, 1], [0, -180]);
+  const rotate1 = useTransform(scrollYProgress, [0, 1], [-30, 330]);
+  const rotate2 = useTransform(scrollYProgress, [0, 1], [20, -160]);
 
   // Simulate loading
   useEffect(() => {
@@ -68,7 +68,7 @@ const Index = () => {
             </motion.div>
             
             <motion.div 
-              className="fixed right-[15%] top-[60%] w-20 h-20 md:w-32 md:h-32 z-0 pointer-events-none"
+              className="fixed right-[15%] top-[10%] w-20 h-20 md:w-32 md:h-32 z-0 pointer-events-none"
               style={{ y: translateY2, rotate: rotate2 }}
             >
               <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
