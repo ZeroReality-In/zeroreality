@@ -1,12 +1,11 @@
 
 import { motion } from "framer-motion";
-import { Calendar, Menu } from "lucide-react";
+import { Calendar } from "lucide-react";
 import { Button } from "./ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { ThemeToggle } from "./ThemeToggle";
-import { Link } from "react-router-dom";
+import { Menu } from "lucide-react";
 
 const Navbar = () => {
   const isMobile = useIsMobile();
@@ -85,8 +84,9 @@ const Navbar = () => {
               <SheetContent className="w-[80%] sm:w-[350px]">
                 <div className="flex flex-col gap-6 mt-10">
                   <NavItem text="SERVICES" onClick={() => scrollToSection('services-showcase')} />
-                  <NavItem text="WORK" onClick={() => scrollToSection('selected-work')} />
+                  <NavItem text="WORK" onClick={() => scrollToSection('works')} />
                   <NavItem text="WHY US" onClick={() => scrollToSection('why-us')} />
+                  <NavItem text="CONTACT" onClick={() => scrollToSection('book-call')} />
                   <Button 
                     className="bg-neon-green hover:bg-neon-green/90 text-black rounded-full font-medium"
                     onClick={() => scrollToSection('book-call')}
@@ -98,10 +98,11 @@ const Navbar = () => {
             </Sheet>
           </div>
         ) : (
-          <motion.div variants={itemVariants} className="flex items-center gap-8">
+          <motion.div variants={itemVariants} className="flex items-center gap-12">
             <NavItem text="SERVICES" onClick={() => scrollToSection('services-showcase')} />
-            <NavItem text="WORK" onClick={() => scrollToSection('selected-work')} />
+            <NavItem text="WORK" onClick={() => scrollToSection('works')} />
             <NavItem text="WHY US" onClick={() => scrollToSection('why-us')} />
+            <NavItem text="CONTACT" onClick={() => scrollToSection('book-call')} />
             <ThemeToggle />
             <Button 
               className="bg-neon-green hover:bg-neon-green/90 text-black rounded-full font-medium"
@@ -126,7 +127,7 @@ const NavItem = ({
   return (
     <motion.a 
       onClick={onClick}
-      className="text-foreground/80 hover:text-foreground transition-colors text-sm tracking-wide cursor-pointer" 
+      className="text-foreground/80 hover:text-foreground transition-colors text-sm tracking-wide cursor-pointer uppercase" 
       whileHover={{
         scale: 1.05
       }} 
