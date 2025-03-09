@@ -38,11 +38,11 @@ const BookCall = () => {
 
   return (
     <section id="book-call" className="py-24 md:py-32 px-6 relative overflow-hidden bg-background">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+      <div className="max-w-7xl mx-auto flex flex-col items-center justify-center">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-24 w-full">
           {/* Left side - Form content */}
           <motion.div 
-            className="w-full md:w-1/2 max-w-3xl border-4 border-neon-green rounded-[2.5rem] p-8 md:p-12 relative"
+            className="w-full lg:w-[580px] border-4 border-neon-green rounded-[2.5rem] p-8 md:p-12 relative"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -113,7 +113,7 @@ const BookCall = () => {
 
           {/* Right side - Illustration */}
           <motion.div 
-            className="w-full md:w-1/2 flex justify-center items-center"
+            className="w-full lg:w-[580px] flex justify-center items-center"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
