@@ -17,6 +17,7 @@ const Index = () => {
   const { scrollYProgress } = useScroll();
   const { theme } = useTheme();
   
+  // More diverse transform values for existing floating objects
   const translateY1 = useTransform(scrollYProgress, [0, 1], [0, -150]);
   const translateY2 = useTransform(scrollYProgress, [0, 1], [0, -50]);
   const translateY3 = useTransform(scrollYProgress, [0, 1], [0, -200]);
@@ -26,6 +27,12 @@ const Index = () => {
   const translateY7 = useTransform(scrollYProgress, [0, 1], [0, -120]);
   const translateY8 = useTransform(scrollYProgress, [0, 1], [0, 60]);
   
+  // New transform values for additional floating objects
+  const translateY9 = useTransform(scrollYProgress, [0, 1], [0, -90]);
+  const translateY10 = useTransform(scrollYProgress, [0, 1], [0, 110]);
+  const translateY11 = useTransform(scrollYProgress, [0, 1], [0, -180]);
+  const translateY12 = useTransform(scrollYProgress, [0, 1], [0, 75]);
+  
   const rotate1 = useTransform(scrollYProgress, [0, 1], [-30, 330]);
   const rotate2 = useTransform(scrollYProgress, [0, 1], [20, -160]);
   const rotate3 = useTransform(scrollYProgress, [0, 1], [0, 180]);
@@ -33,6 +40,12 @@ const Index = () => {
   const rotate5 = useTransform(scrollYProgress, [0, 1], [10, -80]);
   const rotate6 = useTransform(scrollYProgress, [0, 1], [0, 360]);
   const rotate7 = useTransform(scrollYProgress, [0, 1], [-20, 90]);
+  
+  // New rotation values for additional floating objects
+  const rotate8 = useTransform(scrollYProgress, [0, 1], [0, 270]);
+  const rotate9 = useTransform(scrollYProgress, [0, 1], [-45, 120]);
+  const rotate10 = useTransform(scrollYProgress, [0, 1], [30, -220]);
+  const rotate11 = useTransform(scrollYProgress, [0, 1], [10, 230]);
 
   // Simulate loading
   useEffect(() => {
@@ -244,7 +257,7 @@ const Index = () => {
               </svg>
             </motion.div>
             
-            {/* New: Red Diamond */}
+            {/* Red Diamond */}
             <motion.div 
               className="fixed left-[40%] top-[10%] w-6 h-6 md:w-10 md:h-10 z-0 pointer-events-none"
               style={{ y: translateY7, rotate: rotate6 }}
@@ -281,7 +294,7 @@ const Index = () => {
               </svg>
             </motion.div>
             
-            {/* New: Cyan Oval */}
+            {/* Cyan Oval */}
             <motion.div 
               className="fixed right-[20%] bottom-[10%] w-12 h-8 md:w-16 md:h-10 z-0 pointer-events-none"
               style={{ y: translateY8, rotate: rotate7 }}
@@ -311,6 +324,127 @@ const Index = () => {
                   rx="30" 
                   ry="20" 
                   fill={theme === 'dark' ? "#06B6D4" : "#22D3EE"} 
+                  fillOpacity={theme === 'dark' ? "0.2" : "0.4"}
+                />
+              </svg>
+            </motion.div>
+            
+            {/* NEW: Teal Plus Sign */}
+            <motion.div 
+              className="fixed left-[15%] top-[40%] w-8 h-8 md:w-12 md:h-12 z-0 pointer-events-none"
+              style={{ y: translateY9, rotate: rotate8 }}
+              animate={{
+                scale: [1, 1.15, 0.9, 1],
+                opacity: [0.5, 0.8, 0.5],
+                transition: {
+                  duration: 9.5,
+                  repeat: Infinity,
+                  repeatType: "mirror",
+                  ease: "easeInOut"
+                }
+              }}
+            >
+              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path 
+                  d="M40 0H60V40H100V60H60V100H40V60H0V40H40V0Z" 
+                  fill={theme === 'dark' ? "#14B8A6" : "#2DD4BF"} 
+                  fillOpacity={theme === 'dark' ? "0.1" : "0.25"}
+                />
+                <path 
+                  d="M45 15H55V45H85V55H55V85H45V55H15V45H45V15Z" 
+                  fill={theme === 'dark' ? "#14B8A6" : "#2DD4BF"} 
+                  fillOpacity={theme === 'dark' ? "0.2" : "0.4"}
+                />
+              </svg>
+            </motion.div>
+            
+            {/* NEW: Lime Wave */}
+            <motion.div 
+              className="fixed right-[25%] top-[60%] w-16 h-6 md:w-24 md:h-8 z-0 pointer-events-none"
+              style={{ y: translateY10, rotate: rotate9 }}
+              animate={{
+                scaleX: [1, 1.2, 1, 0.9, 1],
+                scaleY: [1, 0.9, 1.1, 1],
+                opacity: [0.4, 0.7, 0.4],
+                transition: {
+                  duration: 11,
+                  repeat: Infinity,
+                  repeatType: "mirror",
+                  ease: "easeInOut"
+                }
+              }}
+            >
+              <svg viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path 
+                  d="M0 20C10 5 20 35 30 20C40 5 50 35 60 20C70 5 80 35 90 20C100 5 110 35 120 20" 
+                  stroke={theme === 'dark' ? "#84CC16" : "#A3E635"} 
+                  strokeWidth="10"
+                  strokeLinecap="round"
+                  strokeOpacity={theme === 'dark' ? "0.15" : "0.3"}
+                />
+                <path 
+                  d="M0 20C10 5 20 35 30 20C40 5 50 35 60 20C70 5 80 35 90 20C100 5 110 35 120 20" 
+                  stroke={theme === 'dark' ? "#84CC16" : "#A3E635"} 
+                  strokeWidth="5"
+                  strokeLinecap="round"
+                  strokeOpacity={theme === 'dark' ? "0.3" : "0.5"}
+                />
+              </svg>
+            </motion.div>
+            
+            {/* NEW: Rose Pentagon */}
+            <motion.div 
+              className="fixed left-[30%] bottom-[20%] w-10 h-10 md:w-14 md:h-14 z-0 pointer-events-none"
+              style={{ y: translateY11, rotate: rotate10 }}
+              animate={{
+                scale: [1, 1.1, 0.95, 1],
+                filter: ["drop-shadow(0 0 0 rgba(244, 114, 182, 0))", "drop-shadow(0 0 4px rgba(244, 114, 182, 0.3))", "drop-shadow(0 0 0 rgba(244, 114, 182, 0))"],
+                transition: {
+                  duration: 7.5,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut"
+                }
+              }}
+            >
+              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path 
+                  d="M50 0L97.5528 34.5491L79.3893 90.4509H20.6107L2.44717 34.5491L50 0Z" 
+                  fill={theme === 'dark' ? "#E11D48" : "#FB7185"} 
+                  fillOpacity={theme === 'dark' ? "0.1" : "0.25"}
+                />
+                <path 
+                  d="M50 20L80.9017 44.2705L68.5317 82.7295H31.4683L19.0983 44.2705L50 20Z" 
+                  fill={theme === 'dark' ? "#E11D48" : "#FB7185"} 
+                  fillOpacity={theme === 'dark' ? "0.2" : "0.4"}
+                />
+              </svg>
+            </motion.div>
+            
+            {/* NEW: Violet Cross */}
+            <motion.div 
+              className="fixed right-[10%] top-[45%] w-12 h-12 md:w-14 md:h-14 z-0 pointer-events-none"
+              style={{ y: translateY12, rotate: rotate11 }}
+              animate={{
+                scale: [1, 1.15, 0.9, 1.05, 1],
+                opacity: [0.6, 0.9, 0.6],
+                transition: {
+                  duration: 10,
+                  repeat: Infinity,
+                  repeatType: "mirror",
+                  ease: "easeInOut"
+                }
+              }}
+            >
+              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path 
+                  d="M35 0H65V35H100V65H65V100H35V65H0V35H35V0Z" 
+                  fill={theme === 'dark' ? "#8B5CF6" : "#A78BFA"} 
+                  fillOpacity={theme === 'dark' ? "0.1" : "0.25"}
+                />
+                <path 
+                  d="M40 10H60V40H90V60H60V90H40V60H10V40H40V10Z" 
+                  fill={theme === 'dark' ? "#8B5CF6" : "#A78BFA"} 
                   fillOpacity={theme === 'dark' ? "0.2" : "0.4"}
                 />
               </svg>
