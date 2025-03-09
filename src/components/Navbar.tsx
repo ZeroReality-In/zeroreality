@@ -38,6 +38,15 @@ const Navbar = () => {
     }
   };
 
+  const scrollToPricing = () => {
+    const pricingSection = document.getElementById('pricing-section');
+    if (pricingSection) {
+      pricingSection.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <motion.header 
       initial="hidden" 
@@ -63,8 +72,11 @@ const Navbar = () => {
                 <div className="flex flex-col gap-6 mt-10">
                   <NavItem text="SERVICES" />
                   <NavItem text="WORK" />
-                  <NavItem text="PRICING" />
-                  <Button className="bg-neon-green hover:bg-neon-green/90 text-black rounded-full font-medium">
+                  <NavItem text="BOOK A CALL" onClick={scrollToPricing} />
+                  <Button 
+                    className="bg-neon-green hover:bg-neon-green/90 text-black rounded-full font-medium"
+                    onClick={scrollToPricing}
+                  >
                     <span className="mr-2">→</span> START A PROJECT
                   </Button>
                 </div>
@@ -75,9 +87,12 @@ const Navbar = () => {
           <motion.div variants={itemVariants} className="flex items-center gap-8">
             <NavItem text="SERVICES" />
             <NavItem text="WORK" />
-            <NavItem text="PRICING" />
+            <NavItem text="BOOK A CALL" onClick={scrollToPricing} />
             <ThemeToggle />
-            <Button className="bg-neon-green hover:bg-neon-green/90 text-black rounded-full font-medium">
+            <Button 
+              className="bg-neon-green hover:bg-neon-green/90 text-black rounded-full font-medium"
+              onClick={scrollToPricing}
+            >
               <span className="mr-2">→</span> START A PROJECT
             </Button>
           </motion.div>
@@ -87,14 +102,22 @@ const Navbar = () => {
   );
 };
 
-const NavItem = ({
-  text
-}: {
+interface NavItemProps {
   text: string;
-}) => {
+  onClick?: () => void;
+}
+
+const NavItem = ({
+  text,
+  onClick
+}: NavItemProps) => {
   return (
     <motion.a 
       href="#" 
+      onClick={(e) => {
+        e.preventDefault();
+        if (onClick) onClick();
+      }}
       className="text-foreground/80 hover:text-foreground transition-colors text-sm tracking-wide" 
       whileHover={{
         scale: 1.05

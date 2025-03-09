@@ -7,6 +7,7 @@ import ServicesShowcase from "@/components/ServicesShowcase";
 import TextMarquee from "@/components/TextMarquee";
 import SelectedWork from "@/components/SelectedWork";
 import ProjectShowcase from "@/components/ProjectShowcase";
+import PricingSection from "@/components/PricingSection";
 import { useTheme } from "@/components/ThemeProvider";
 
 const Index = () => {
@@ -114,6 +115,7 @@ const Index = () => {
               <TextMarquee />
               <SelectedWork />
               <ProjectShowcase />
+              <PricingSection />
             </div>
           </motion.div>
         )}
