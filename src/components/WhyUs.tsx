@@ -1,4 +1,3 @@
-
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Sparkles, Star, Zap, Award } from "lucide-react";
@@ -86,12 +85,10 @@ const WhyUs = () => {
     offset: ["start end", "end start"]
   });
 
-  // Parallax and animation effects
   const titleY = useTransform(scrollYProgress, [0, 0.5], [50, -50]);
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0.7]);
   const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.9, 1, 1, 0.95]);
   
-  // Floating animation for the title container
   const containerY = useTransform(scrollYProgress, [0, 0.5, 1], [0, -20, -40]);
   const containerRotate = useTransform(scrollYProgress, [0, 0.5, 1], [-1, 0, 1]);
 
@@ -124,11 +121,10 @@ const WhyUs = () => {
 
   return (
     <div 
-      id="services-showcase"
+      id="why-us"
       ref={containerRef}
       className="relative pt-32 pb-32 my-16 md:my-32 overflow-hidden"
     >
-      {/* Background elements */}
       <motion.div 
         className="absolute -right-32 top-20 w-64 h-64 rounded-full bg-[#9b87f5]/5 blur-3xl"
         style={{ 
@@ -144,7 +140,6 @@ const WhyUs = () => {
         }}
       />
 
-      {/* Title section */}
       <motion.div 
         className="mb-20 text-center"
         style={{ 
@@ -184,7 +179,6 @@ const WhyUs = () => {
         </motion.div>
       </motion.div>
 
-      {/* Cards grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col gap-4 md:gap-6">
           {reasons.map((reason, index) => (

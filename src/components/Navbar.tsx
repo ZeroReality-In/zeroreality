@@ -86,7 +86,7 @@ const Navbar = () => {
                   <NavItem text="SERVICES" onClick={() => scrollToSection('services-showcase')} />
                   <NavItem text="WORK" onClick={() => scrollToSection('works')} />
                   <NavItem text="WHY US" onClick={() => scrollToSection('why-us')} />
-                  <NavItem text="CONTACT" onClick={() => scrollToSection('book-call')} />
+                  <NavItem text="CONTACT" onClick={() => scrollToSection('footer')} />
                   <Button 
                     className="bg-neon-green hover:bg-neon-green/90 text-black rounded-full font-medium"
                     onClick={() => scrollToSection('book-call')}
@@ -102,7 +102,7 @@ const Navbar = () => {
             <NavItem text="SERVICES" onClick={() => scrollToSection('services-showcase')} />
             <NavItem text="WORK" onClick={() => scrollToSection('works')} />
             <NavItem text="WHY US" onClick={() => scrollToSection('why-us')} />
-            <NavItem text="CONTACT" onClick={() => scrollToSection('book-call')} />
+            <NavItem text="CONTACT" onClick={() => scrollToSection('footer')} />
             <ThemeToggle />
             <Button 
               className="bg-neon-green hover:bg-neon-green/90 text-black rounded-full font-medium"
