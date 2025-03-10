@@ -1,4 +1,3 @@
-
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -21,8 +20,8 @@ const ServicesShowcase = () => {
   const scale = useTransform(scrollYProgress, [0, 0.3, 0.8, 1], [0.9, 1, 1, 0.95]);
 
   // Enhanced transformations for the "WE OFFER" bubble - more dynamic movement
-  const bubbleRotate = useTransform(scrollYProgress, [0, 0.5, 1], [-8, 0, 8]); // Dynamic rotation based on scroll
-  const bubbleY = useTransform(scrollYProgress, [0, 0.5, 1], [0, -20, -40]); // Enhanced vertical movement
+  const bubbleRotate = useTransform(scrollYProgress, [0, 0.5, 1], [-12, -6, 0]); // Dynamic rotation based on scroll
+  const bubbleY = useTransform(scrollYProgress, [0, 0.5, 1], [-70, -50, -30]); // Enhanced vertical movement
   const bubbleX = useTransform(scrollYProgress, [0, 0.5, 1], [0, 10, 20]); // Enhanced horizontal movement
   const bubbleScale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.9, 1.1, 1.2, 1]); // Scale animation
 
@@ -42,7 +41,6 @@ const ServicesShowcase = () => {
     }),
     hover: {
       scale: 1.05,
-      color: "#8BFF00",
       transition: { duration: 0.2 }
     }
   };
@@ -69,6 +67,11 @@ const ServicesShowcase = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            style={{
+              rotate: bubbleRotate,
+              y: -70,
+              x: 0
+            }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -79,13 +82,13 @@ const ServicesShowcase = () => {
                 transition: { duration: 2, repeat: Infinity }
               }}
             >
-              WE OFFER 🏄
+              WE OFFER 🏄‍♂️
             </motion.span>
           </motion.div>
 
           {/* Green rectangle with services */}
           <motion.div 
-            className="bg-neon-green rounded-3xl px-6 py-8 relative z-10"
+            className="bg-[#8BFF00] rounded-3xl px-6 py-8 relative z-10"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -98,7 +101,7 @@ const ServicesShowcase = () => {
               {services.map((service, index) => (
                 <motion.div 
                   key={index} 
-                  className="font-display text-2xl font-bold text-black"
+                  className="font-[Inter Tight] text-2xl font-bold text-black"
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: false, amount: 0.1 }}
@@ -111,6 +114,7 @@ const ServicesShowcase = () => {
               ))}
             </motion.div>
           </motion.div>
+
         </div>
       </motion.div>
     );
@@ -125,7 +129,7 @@ const ServicesShowcase = () => {
         opacity,
         scale
       }} 
-      className="relative mt-16 md:mt-32 pb-32 pt-32 md:pt-36 py-[95px] my-[140px]"
+      className="relative py-[25px] my-[140px]"
     >
       {/* Empty div for scroll target positioning - helps ensure proper scroll positioning */}
       <div id="services-scroll-target" className="absolute top-[-100px]"></div>
@@ -134,7 +138,7 @@ const ServicesShowcase = () => {
         <div className="relative w-full max-w-xl"> 
           {/* Green rectangle background with enhanced animations */}
           <motion.div 
-            className="bg-neon-green rounded-[2.5rem] p-8 pt-12 pb-12 relative z-10 max-w-xl mx-auto" 
+            className="bg-[#8BFF00] rounded-[2.5rem] p-8 pt-12 pb-12 relative z-10 max-w-xl mx-auto" 
             style={{ y: boxY }}
             whileHover={{ 
               boxShadow: "0 20px 40px rgba(173, 255, 0, 0.3)",
@@ -149,7 +153,7 @@ const ServicesShowcase = () => {
               {services.map((service, index) => (
                 <motion.div 
                   key={index} 
-                  className="font-display text-3xl md:text-4xl xl:text-5xl font-bold text-black" 
+                  className="font-[Inter Tight] text-3xl md:text-4xl xl:text-5xl font-medium text-black" 
                   custom={index}
                   initial="hidden"
                   whileInView="visible"
@@ -180,7 +184,7 @@ const ServicesShowcase = () => {
             whileTap={{ scale: 0.95 }}
           >
             <motion.span 
-              className="font-display text-2xl md:text-4xl font-bold text-white whitespace-nowrap"
+              className="font-[Clash Display Medium] text-2xl md:text-4xl font-medium text-white whitespace-nowrap"
               animate={{
                 scale: [1, 1.05, 1],
                 transition: { duration: 3, repeat: Infinity }
@@ -195,7 +199,7 @@ const ServicesShowcase = () => {
                 }}
                 className="inline-block ml-2"
               >
-                🏄
+                🏄‍♂️
               </motion.span>
             </motion.span>
           </motion.div>

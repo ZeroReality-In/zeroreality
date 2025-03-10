@@ -99,7 +99,7 @@ const BookCall = () => {
         </div>
       )}
       
-      <section id="book-call" className="py-24 px-6 relative overflow-hidden bg-background md:py-32 flex justify-center items-center min-h-screen">
+      <section id="book-call" className="px-6 relative overflow-hidden bg-background md:pt-10 md:pb-32 flex justify-center items-center">
         <div className="max-w-7xl mx-auto relative w-full">
           {/* Left side decoration - rotated radial lines */}
           <motion.div className="absolute left-0 bottom-0 hidden lg:block" initial={{

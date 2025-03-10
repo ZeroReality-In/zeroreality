@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Instagram, Linkedin, Twitter } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -16,22 +15,17 @@ const Footer = () => {
             <h3 className="text-foreground/60 text-lg mb-6">Follow us</h3>
             <ul className="space-y-4">
               <li>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-neon-green transition-colors">
+                <a href="https://x.com/ZerorealityIn" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-neon-green transition-colors">
                   X.COM
                 </a>
               </li>
               <li>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-neon-green transition-colors">
+                <a href="https://www.linkedin.com/company/zeroreality.in" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-neon-green transition-colors">
                   LINKEDIN
                 </a>
               </li>
               <li>
-                <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-neon-green transition-colors">
-                  DRIBBBLE
-                </a>
-              </li>
-              <li>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-neon-green transition-colors">
+                <a href="https://www.instagram.com/zeroreality.in/" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-neon-green transition-colors">
                   INSTAGRAM
                 </a>
               </li>
@@ -43,7 +37,7 @@ const Footer = () => {
             <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
               <div className="rounded-3xl overflow-hidden w-full max-w-[180px] aspect-square bg-gray-800">
                 <img 
-                  src="/lovable-uploads/c331f054-e65a-4f8d-9e2f-67a5fa523590.png" 
+                  src="/lovable-uploads/giphy.gif" 
                   alt="Contact"
                   className="w-full h-full object-cover"
                 />
@@ -51,23 +45,26 @@ const Footer = () => {
               <div>
                 <h3 className="text-foreground/60 text-lg">General Inquiries</h3>
                 <a 
-                  href="mailto:contact@zeroreality.com" 
+                  href="mailto:contact@zeroreality.in" 
                   className="text-2xl md:text-4xl font-bold text-foreground hover:text-neon-green transition-colors break-all"
                 >
-                  contact@zeroreality.com
+                  contact@zeroreality.in
                 </a>
               </div>
             </div>
             
             {/* Get in touch oval */}
             <div className="mt-12 md:mt-16 relative">
-              <motion.div 
-                className="border border-foreground/20 rounded-full py-3 md:py-4 px-6 md:px-8 w-fit transform -rotate-12"
+              <motion.a 
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdiLKMVpqNxSM_qiA3-X0467CZV8zAyXpF3XekPpLkU-RJZUg/viewform?usp=dialog"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-foreground/20 rounded-full py-3 md:py-4 px-6 md:px-8 w-fit transform -rotate-12 inline-block cursor-pointer"
                 whileHover={{ scale: 1.05, rotate: -8 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
                 <span className="text-xl md:text-3xl font-medium">GET IN TOUCH <span className="inline-block ml-2">☺</span></span>
-              </motion.div>
+              </motion.a>
             </div>
           </div>
         </div>

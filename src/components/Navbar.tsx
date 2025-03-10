@@ -49,6 +49,11 @@ const Navbar = () => {
       
       if (id === 'services-showcase') {
         offset = navbarHeight + 40;
+      } else if (id === 'works') {
+        // Center the works section in the viewport
+        const sectionHeight = section.getBoundingClientRect().height;
+        const windowHeight = window.innerHeight;
+        offset = Math.max((windowHeight - sectionHeight) / 2, navbarHeight);
       } else if (id === 'book-call') {
         // Center the book-call section in the viewport without any offset
         const sectionHeight = section.getBoundingClientRect().height;

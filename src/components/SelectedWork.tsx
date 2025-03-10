@@ -1,8 +1,10 @@
-
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { useTheme } from "./ThemeProvider";
 
 const SelectedWork = () => {
+  const { theme } = useTheme();
+  
   const scrollToProjects = () => {
     // Find the ProjectShowcase element and scroll to it
     const projectsSection = document.getElementById('project-showcase');
@@ -92,8 +94,11 @@ const SelectedWork = () => {
   const worksText = "WORKS";
   const worksLetters = worksText.split("");
 
+  // Hover color that works in both light and dark themes
+  const hoverColor = "#ADFF00"; // Bright green that's visible in both themes
+
   return (
-    <div id="works" className="relative w-full bg-background flex flex-col items-center justify-center py-24 pt-32 md:py-[94px]">
+    <div id="works" className="relative w-full min-h-[80vh] bg-background flex flex-col items-center justify-center">
       <motion.div
         variants={titleVariants}
         initial="hidden"
@@ -103,10 +108,11 @@ const SelectedWork = () => {
       >
         <motion.h2 
           variants={accentVariants}
-          className="text-6xl md:text-7xl lg:text-8xl font-display font-medium text-[#9b87f5] dark:text-[#9b87f5] tracking-tight mb-4"
+          className="text-6xl md:text-7xl lg:text-8xl font-serif font-normal text-[#9b87f5] dark:text-[#9b87f5] tracking-tight mb-4"
+          style={{ fontFamily: "'Times New Roman', serif" }}
           whileHover={{ 
             scale: 1.05, 
-            color: "#ADFF00",
+            color: hoverColor,
             transition: { duration: 0.3 }
           }}
         >
@@ -125,10 +131,16 @@ const SelectedWork = () => {
               <motion.span
                 key={index}
                 variants={letterVariants}
-                className="text-6xl md:text-7xl font-display font-bold uppercase tracking-tight lg:text-9xl inline-block"
+                style={{ 
+                  color: theme === 'dark' ? 'white' : 'black',
+                  fontFamily: "'Arial', sans-serif",
+                  fontWeight: 700,
+                  letterSpacing: "0.05em"
+                }}
+                className="text-6xl md:text-7xl font-sans uppercase tracking-tight lg:text-9xl inline-block"
                 whileHover={{ 
                   scale: 1.1, 
-                  color: "#ADFF00", 
+                  color: hoverColor, 
                   rotate: [-5, 5, 0],
                   transition: { duration: 0.3 } 
                 }}

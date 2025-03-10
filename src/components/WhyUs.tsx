@@ -142,7 +142,7 @@ const WhyUs = () => {
     description: "Our designs not only look amazing but drive tangible business outcomes.",
     icon: <Award className="w-7 h-7" />
   }];
-  return <div id="why-us" ref={containerRef} className="relative pt-32 pb-32 my-16 overflow-hidden md:my-0">
+  return <div id="why-us" ref={containerRef} className="relative pt-32 pb-72 my-16 overflow-hidden md:my-0">
       <motion.div className="absolute -right-32 top-20 w-64 h-64 rounded-full bg-[#9b87f5]/5 blur-3xl" style={{
       y: useTransform(scrollYProgress, [0, 1], [50, -100]),
       scale: useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.2, 0.9])

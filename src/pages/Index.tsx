@@ -62,6 +62,16 @@ const Index = () => {
                 stiffness: 200,
                 damping: 10
               }}
+              animate={{
+                scale: [1, 1.4, 1],
+                opacity: [0.5, 0.8, 0.5],
+                transition: {
+                  duration: 4,
+                  repeat: Infinity,
+                  repeatType: "reverse"
+                }
+              }}
+
             >
               <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle 
@@ -83,9 +93,19 @@ const Index = () => {
             
             {/* Purple square at bottom left */}
             <motion.div 
-              className="fixed left-[5%] bottom-[15%] w-20 h-20 md:w-32 md:h-32 z-0 pointer-events-none"
+              className="fixed left-[5%] bottom-[15%] w-20 h-20 md:w-25 md:h-25 z-0 pointer-events-none"
               style={{ y: translateY2, rotate: rotate2 }}
               whileHover={{ scale: 1.2 }}
+              animate={{
+                scale: [1, 1.4, 1],
+                opacity: [0.5, 0.8, 0.5],
+                transition: {
+                  duration: 4,
+                  repeat: Infinity,
+                  repeatType: "reverse"
+                }
+              }}
+
               transition={{
                 type: "spring",
                 stiffness: 200,
@@ -122,6 +142,16 @@ const Index = () => {
                 stiffness: 200,
                 damping: 10
               }}
+              animate={{
+                scale: [1, 1.4, 1],
+                opacity: [0.5, 0.8, 0.5],
+                transition: {
+                  duration: 4,
+                  repeat: Infinity,
+                  repeatType: "reverse"
+                }
+              }}
+
             >
               <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path 
@@ -142,7 +172,7 @@ const Index = () => {
               className="fixed right-[15%] bottom-[25%] w-14 h-14 md:w-20 md:h-20 z-0 pointer-events-none"
               style={{ y: translateY4, rotate: rotate3 }}
               animate={{
-                scale: [1, 1.1, 1],
+                scale: [1, 1.4, 1],
                 transition: {
                   duration: 3,
                   repeat: Infinity,
@@ -169,6 +199,7 @@ const Index = () => {
               className="fixed left-[20%] top-[70%] w-10 h-10 md:w-16 md:h-16 z-0 pointer-events-none"
               style={{ y: translateY5, rotate: rotate4 }}
               animate={{
+                scale: [1, 1.4, 1],
                 opacity: [0.5, 0.8, 0.5],
                 transition: {
                   duration: 4,
@@ -200,7 +231,7 @@ const Index = () => {
               className="fixed right-[30%] top-[30%] w-8 h-8 md:w-12 md:h-12 z-0 pointer-events-none"
               style={{ y: translateY6, rotate: rotate5 }}
               animate={{
-                scale: [1, 1.2, 0.9, 1],
+                scale: [1, 1.4, 1],
                 transition: {
                   duration: 5,
                   repeat: Infinity,

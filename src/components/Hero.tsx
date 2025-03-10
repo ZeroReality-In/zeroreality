@@ -1,44 +1,18 @@
-
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 
 const Hero = () => {
-  const dynamicTexts = ["Websites", "Mobile Applications", "Designs", "AI Solutions"];
+  const dynamicTexts = ["WEBSITES", "APPS", "DESIGN", "AI"];
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const [displayText, setDisplayText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [typingSpeed, setTypingSpeed] = useState(150);
-
+  
   useEffect(() => {
-    const text = dynamicTexts[currentTextIndex];
+    const interval = setInterval(() => {
+      setCurrentTextIndex((prevIndex) => (prevIndex + 1) % dynamicTexts.length);
+    }, 1750); // Change word every 1.75 seconds
     
-    const typeWriter = () => {
-      if (isDeleting) {
-        // Deleting text
-        setDisplayText(text.substring(0, displayText.length - 1));
-        setTypingSpeed(50); // faster when deleting
-        
-        if (displayText === "") {
-          setIsDeleting(false);
-          setCurrentTextIndex((currentTextIndex + 1) % dynamicTexts.length);
-          setTypingSpeed(150);
-        }
-      } else {
-        // Typing text
-        setDisplayText(text.substring(0, displayText.length + 1));
-        
-        if (displayText === text) {
-          // Pause at the end before deleting
-          setTypingSpeed(2000);
-          setIsDeleting(true);
-        }
-      }
-    };
-
-    const timer = setTimeout(typeWriter, typingSpeed);
-    return () => clearTimeout(timer);
-  }, [displayText, isDeleting, currentTextIndex, dynamicTexts, typingSpeed]);
+    return () => clearInterval(interval);
+  }, [dynamicTexts.length]);
   
   const containerVariants = {
     hidden: {
@@ -65,6 +39,29 @@ const Hero = () => {
         type: "spring",
         stiffness: 100,
         damping: 20
+      }
+    }
+  };
+  
+  const textVariants = {
+    initial: { 
+      opacity: 0,
+      y: 20 
+    },
+    animate: { 
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    },
+    exit: { 
+      opacity: 0,
+      y: -20,
+      transition: {
+        duration: 0.3,
+        ease: "easeIn"
       }
     }
   };
@@ -107,21 +104,42 @@ const Hero = () => {
         <div className="flex flex-col gap-4 items-center">
           <motion.div 
             variants={itemVariants}
-            className="text-4xl md:text-6xl lg:text-8xl font-display font-bold text-foreground tracking-tight"
+            className="text-4xl md:text-6xl lg:text-8xl tracking-tight"
+            style={{ 
+              fontFamily: " 'Inter Tight', 'Inter Tight Placeholder', sans-serif",
+              fontWeight: 400,
+              letterSpacing: "-0.02em"
+            }}
           >
             We Build Awesome
           </motion.div>
           
           <motion.div 
             variants={itemVariants} 
-            className="text-4xl md:text-6xl lg:text-8xl font-display font-bold text-neon-green tracking-tight h-20 md:h-24 lg:h-32 flex items-center"
+            className="flex items-center justify-center gap-4 md:gap-6 lg:gap-8 h-20 md:h-24 lg:h-32"
           >
-            {displayText}<span className="animate-pulse">|</span>
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={currentTextIndex}
+                variants={textVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                className="text-4xl md:text-6xl lg:text-8xl font-bold text-neon-green tracking-tight"
+                style={{ 
+                  fontWeight: 700,
+                  letterSpacing: "-0.01em"
+                }}
+              >
+                {dynamicTexts[currentTextIndex]}
+              </motion.span>
+            </AnimatePresence>
           </motion.div>
           
           <motion.div 
             variants={itemVariants} 
             className="mt-8 text-foreground/60 text-sm flex items-center justify-center"
+            style={{ fontFamily: "'Arial', sans-serif", letterSpacing: "0.1em" }}
           >
             ✦ INNOVATE · CREATE · DELIVER ✦
           </motion.div>
@@ -132,7 +150,7 @@ const Hero = () => {
             whileTap={{ scale: 0.95 }} 
             className="mt-16 relative flex items-center justify-center gap-4 bg-transparent border border-foreground/20 text-foreground py-4 px-10 rounded-full overflow-hidden group"
           >
-            <span className="z-10 font-medium text-xl">View Our Work</span>
+            <span className="z-10 font-medium text-xl" style={{ fontFamily: "'Arial', sans-serif" }}>View Our Work</span>
             <motion.div 
               className="z-10 bg-neon-green rounded-full p-2" 
               whileHover={{ rotate: 45, backgroundColor: "#8BFF00" }}
