@@ -1,11 +1,20 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useTheme } from './ThemeProvider';
+import React, { useEffect, useRef, useState } from "react";
+import { useTheme } from "./ThemeProvider";
 
 const StarIcon = () => {
   const { theme } = useTheme();
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 1L14.594 8.406L22 11L14.594 13.594L12 21L9.406 13.594L2 11L9.406 8.406L12 1Z" fill={theme === 'dark' ? 'white' : 'black'} />
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12 1L14.594 8.406L22 11L14.594 13.594L12 21L9.406 13.594L2 11L9.406 8.406L12 1Z"
+        fill={theme === "light" ? "black" : "white"}
+      />
     </svg>
   );
 };
@@ -14,25 +23,14 @@ interface ScrollingBannerProps {
   speed?: number; // Pixels per second
 }
 
-const TextMarquee: React.FC<ScrollingBannerProps> = ({ speed = 50 }) => {
+const TextMarquee: React.FC<ScrollingBannerProps> = ({ speed = 60 }) => {
   const { theme } = useTheme();
   const scrollRef = useRef<HTMLUListElement>(null);
   const [translateX, setTranslateX] = useState(0);
-  const [containerWidth, setContainerWidth] = useState(0);
-  const [itemWidth, setItemWidth] = useState(0);
 
   useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
-
-    // Get the width of the container and first item
-    const containerRect = container.getBoundingClientRect();
-    const itemRect = container.firstElementChild?.getBoundingClientRect();
-    
-    if (!itemRect) return;
-    
-    setContainerWidth(containerRect.width);
-    setItemWidth(itemRect.width);
 
     // Set up the animation
     let animationId: number;
@@ -44,11 +42,11 @@ const TextMarquee: React.FC<ScrollingBannerProps> = ({ speed = 50 }) => {
       lastTimestamp = timestamp;
 
       // Move by distance based on elapsed time and speed
-      setTranslateX(prev => {
+      setTranslateX((prev) => {
         const newValue = prev - (speed * elapsed) / 1000;
-        // Reset when we've moved one third of the total width (one iteration)
-        const resetPoint = -(itemRect.width / 3);
-        return newValue <= resetPoint ? 0 : newValue;
+        // Reset when we've moved exactly one full width to create seamless loop
+        const itemWidth = container.getBoundingClientRect().width / 4;
+        return newValue <= -itemWidth ? 0 : newValue;
       });
 
       animationId = requestAnimationFrame(animate);
@@ -61,115 +59,104 @@ const TextMarquee: React.FC<ScrollingBannerProps> = ({ speed = 50 }) => {
     };
   }, [speed]);
 
+  // Fixed text content with corrected spelling
+  const marqueeText = ["INNOVATE", "CREATE", "DELIVER"];
+
+  // Create the content for one iteration
+  const renderContent = () => (
+    <>
+      {marqueeText.map((text, index) => (
+        <React.Fragment key={index}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "flex-start",
+              flexShrink: 0,
+            }}
+          >
+            <p
+              style={{
+                fontFamily: "Inter, sans-serif",
+                fontSize: "72px",
+                letterSpacing: "-0.02em",
+                lineHeight: "80px",
+                color:
+                  theme === "light"
+                    ? "rgb(0, 0, 0)"
+                    : "rgb(255, 255, 255)",
+                margin: 0,
+                fontWeight: 700,
+                whiteSpace: "nowrap",
+              }}
+            >
+              {text}
+            </p>
+          </div>
+
+          {/* Add star icon after each text except the last one (DELIVER) */}
+          {index < marqueeText.length - 1 && (
+            <div style={{ margin: "0 2rem" }}>
+              <StarIcon />
+            </div>
+          )}
+        </React.Fragment>
+      ))}
+    </>
+  );
+
   return (
-    <section 
+    <section
       style={{
-        display: 'flex',
-        width: '100%',
-        height: '100%',
-        maxWidth: '100%',
-        maxHeight: '100%',
-        placeItems: 'center',
+        display: "flex",
+        width: "100%",
+        height: "100%",
+        maxWidth: "100%",
+        maxHeight: "100%",
+        placeItems: "center",
         margin: 0,
         padding: 0,
-        listStyleType: 'none',
+        listStyleType: "none",
         opacity: 1,
-        overflow: 'hidden',
-        backgroundColor: theme === 'dark' ? 'black' : 'white',
+        overflow: "hidden",
+        backgroundColor: theme === "light" ? "white" : "black",
       }}
     >
       <ul
         ref={scrollRef}
         style={{
-          display: 'flex',
-          width: 'fit-content',
-          height: '100%',
-          maxHeight: '100%',
-          placeItems: 'center',
+          display: "flex",
+          width: "fit-content",
+          height: "100%",
+          maxHeight: "100%",
+          placeItems: "center",
           margin: 0,
           padding: 0,
-          listStyleType: 'none',
-          textIndent: 'none',
+          listStyleType: "none",
+          textIndent: "none",
           gap: 0,
-          position: 'relative',
-          flexDirection: 'row',
-          willChange: 'transform',
+          position: "relative",
+          flexDirection: "row",
+          willChange: "transform",
           transform: `translateX(${translateX}px)`,
         }}
       >
-        {[0, 1, 2].map((index) => (
-          <li key={index} style={{ flexShrink: 0, willChange: 'transform', display: 'flex' }}>
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                padding: '2rem',
-                flexShrink: 0,
-              }}
-            >
-              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', flexShrink: 0 }}>
-                <p
-                  style={{
-                    fontFamily: '"Clash Display", sans-serif',
-                    fontSize: '112px',
-                    letterSpacing: '-0.02em',
-                    lineHeight: '120px',
-                    color: theme === 'dark' ? 'rgb(255, 255, 255)' : 'rgb(0, 0, 0)',
-                    margin: 0,
-                    fontWeight: 600,
-                    whiteSpace: 'nowrap',
-                  }}
-                >
-                  IDEATE
-                </p>
-              </div>
-              
-              <div style={{ margin: '0 2rem' }}>
-                <StarIcon />
-              </div>
-              
-              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', flexShrink: 0 }}>
-                <p
-                  style={{
-                    fontFamily: '"Clash Display", sans-serif',
-                    fontSize: '112px',
-                    letterSpacing: '-0.02em',
-                    lineHeight: '120px',
-                    color: theme === 'dark' ? 'rgb(255, 255, 255)' : 'rgb(0, 0, 0)',
-                    margin: 0,
-                    fontWeight: 600,
-                    whiteSpace: 'nowrap',
-                  }}
-                >
-                  DESIGN
-                </p>
-              </div>
-              
-              <div style={{ margin: '0 2rem' }}>
-                <StarIcon />
-              </div>
-              
-              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', flexShrink: 0 }}>
-                <p
-                  style={{
-                    fontFamily: '"Clash Display", sans-serif',
-                    fontSize: '112px',
-                    letterSpacing: '-0.02em',
-                    lineHeight: '120px',
-                    color: theme === 'dark' ? 'rgb(255, 255, 255)' : 'rgb(0, 0, 0)',
-                    margin: 0,
-                    fontWeight: 600,
-                    whiteSpace: 'nowrap',
-                  }}
-                >
-                  EVOLVE
-                </p>
-              </div>
-              
-              <div style={{ margin: '0 2rem' }}>
-                <StarIcon />
-              </div>
+        {/* Create four identical sets of items for truly seamless looping */}
+        {[0, 1, 2, 3].map((setIndex) => (
+          <li
+            key={setIndex}
+            style={{ 
+              flexShrink: 0, 
+              willChange: "transform", 
+              display: "flex",
+              alignItems: "center",
+              padding: "2rem",
+            }}
+          >
+            <div style={{ margin: "0 2rem" }}>
+              <StarIcon />
             </div>
+            {renderContent()}
           </li>
         ))}
       </ul>

@@ -5,9 +5,9 @@ import { useIsMobile } from "@/hooks/use-mobile";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const isMobile = useIsMobile();
-  
+
   return (
-    <footer id="footer" className="bg-background px-6 py-16 md:py-24">
+    <footer id="footer" className="bg-background px-6 py-12 md:py-16">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 mb-16">
           {/* Follow us section */}
@@ -15,47 +15,64 @@ const Footer = () => {
             <h3 className="text-foreground/60 text-lg mb-6">Follow us</h3>
             <ul className="space-y-4">
               <li>
-                <a href="https://x.com/ZerorealityIn" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-neon-green transition-colors">
+                <a
+                  href="https://x.com/ZerorealityIn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground hover:text-neon-green transition-colors"
+                >
                   X.COM
                 </a>
               </li>
               <li>
-                <a href="https://www.linkedin.com/company/zeroreality.in" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-neon-green transition-colors">
+                <a
+                  href="https://www.linkedin.com/company/zeroreality.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground hover:text-neon-green transition-colors"
+                >
                   LINKEDIN
                 </a>
               </li>
               <li>
-                <a href="https://www.instagram.com/zeroreality.in/" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-neon-green transition-colors">
+                <a
+                  href="https://www.instagram.com/zeroreality.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground hover:text-neon-green transition-colors"
+                >
                   INSTAGRAM
                 </a>
               </li>
             </ul>
           </div>
-          
+
           {/* Contact section with image */}
           <div className="md:col-span-8">
             <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
               <div className="rounded-3xl overflow-hidden w-full max-w-[180px] aspect-square bg-gray-800">
-                <img 
-                  src="/lovable-uploads/giphy.gif" 
+                <img
+                  src="/lovable-uploads/giphy.gif"
                   alt="Contact"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div>
-                <h3 className="text-foreground/60 text-lg">General Inquiries</h3>
-                <a 
-                  href="mailto:contact@zeroreality.in" 
+                <h3 className="text-foreground/60 text-lg">
+                  General Inquiries
+                </h3>
+                <a
+                  href="mailto:contact@zeroreality.in"
                   className="text-2xl md:text-4xl font-bold text-foreground hover:text-neon-green transition-colors break-all"
                 >
                   contact@zeroreality.in
                 </a>
               </div>
             </div>
-            
+
             {/* Get in touch oval */}
             <div className="mt-12 md:mt-16 relative">
-              <motion.a 
+              <motion.a
                 href="https://docs.google.com/forms/d/e/1FAIpQLSdiLKMVpqNxSM_qiA3-X0467CZV8zAyXpF3XekPpLkU-RJZUg/viewform?usp=dialog"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -63,42 +80,63 @@ const Footer = () => {
                 whileHover={{ scale: 1.05, rotate: -8 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <span className="text-xl md:text-3xl font-medium">GET IN TOUCH <span className="inline-block ml-2">☺</span></span>
+                <span className="text-xl md:text-3xl font-medium">
+                  GET IN TOUCH <span className="inline-block ml-2">☺</span>
+                </span>
               </motion.a>
             </div>
           </div>
         </div>
-        
+
         {/* Bottom copyright section */}
         <div className="flex flex-col md:flex-row justify-between items-start border-t border-foreground/10 pt-8">
           <div className="mb-8 md:mb-0">
-            <p className="text-4xl md:text-6xl lg:text-7xl font-semibold">
+            <p className="text-4xl md:text-6xl lg:text-7xl font-bold">
               <span className="inline-block mr-3">©</span>
               {currentYear}
-              <span className="block md:inline-block md:ml-6 text-4xl md:text-6xl lg:text-7xl font-semibold">Zero Reality</span>
+              <span className="block md:inline-block md:ml-6 text-4xl md:text-6xl lg:text-7xl font-bold">
+                Zero Reality
+              </span>
             </p>
           </div>
           <div className="max-w-sm text-foreground/60 text-sm md:text-right mt-4 md:mt-4">
-            <p>ASSISTING STARTUPS AND BUSINESSES TO LAUNCH THEIR DIGITAL PRODUCTS EFFICIENTLY AND EFFORTLESSLY</p>
+            <p>
+              ASSISTING STARTUPS AND BUSINESSES TO LAUNCH THEIR DIGITAL PRODUCTS
+              EFFICIENTLY AND EFFORTLESSLY
+            </p>
           </div>
         </div>
-        
+
         {/* Social Icons for mobile */}
         {isMobile && (
           <div className="mt-12 flex gap-6">
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-neon-green transition-colors">
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground hover:text-neon-green transition-colors"
+            >
               <Twitter size={20} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-neon-green transition-colors">
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground hover:text-neon-green transition-colors"
+            >
               <Linkedin size={20} />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-neon-green transition-colors">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground hover:text-neon-green transition-colors"
+            >
               <Instagram size={20} />
             </a>
           </div>
         )}
       </div>
-      <div id="book-call" className="mt-16"></div>
     </footer>
   );
 };
