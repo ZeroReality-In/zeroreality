@@ -19,18 +19,19 @@ const ProjectCard = ({ title, description, image, tags, isLandscape = false, del
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay }}
       viewport={{ once: true, amount: 0.3 }}
-      className="relative rounded-2xl overflow-hidden group cursor-pointer"
+      className="relative rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer touch-manipulation"
       whileHover={{ 
         scale: 1.02,
         transition: { duration: 0.3 }
       }}
+      whileTap={{ scale: 0.98 }}
     >
       {/* Project Image */}
-      <div className="relative">
+      <div className="relative rounded-xl sm:rounded-2xl overflow-hidden">
         <img 
           src={image} 
           alt={title} 
-          className={`w-full ${isLandscape ? 'h-[300px] sm:h-[400px]' : 'h-[400px] sm:h-[500px]'} object-cover`}
+          className={`w-full ${isLandscape ? 'h-[250px] xs:h-[280px] sm:h-[320px] md:h-[360px] lg:h-[400px]' : image === '/project-images/project2.png' ? 'h-[389px] xs:h-[439px] sm:h-[489px] md:h-[539px] lg:h-[589px]' : 'h-[300px] xs:h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px]'} object-cover ${image === '/project-images/project1.png' ? 'object-left scale-100' : image === '/project-images/project2.png' ? 'object-center scale-110' : ''}`}
           loading="lazy"
           decoding="async"
         />
@@ -38,13 +39,13 @@ const ProjectCard = ({ title, description, image, tags, isLandscape = false, del
       
       {/* Details Section Below Image */}
       <div 
-        className="backdrop-blur-[40px] bg-white/[0.04] border border-white/[0.07] p-4 sm:p-6"
+        className="bg-white p-3 sm:p-4 md:p-6"
       >
         {/* Project Title */}
-        <div className="flex items-center mb-3">
-          <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+        <div className="flex items-center mb-2 sm:mb-3">
+          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full mr-2 sm:mr-3 flex-shrink-0"></div>
           <h3 
-            className="text-xl sm:text-2xl font-semibold text-black"
+            className="text-lg sm:text-xl md:text-2xl font-semibold text-black leading-tight"
             style={{ fontFamily: '"ClashDisplay-Semibold", sans-serif', fontWeight: 400 }}
           >
             {title}
@@ -54,7 +55,7 @@ const ProjectCard = ({ title, description, image, tags, isLandscape = false, del
         
         {/* Description */}
         <p 
-          className="text-sm text-gray-500 mb-3"
+          className="text-xs sm:text-sm text-gray-500 mb-2 sm:mb-3 leading-relaxed"
           style={{ fontFamily: '"Inter Tight", sans-serif' }}
         >
           {description}
@@ -62,12 +63,12 @@ const ProjectCard = ({ title, description, image, tags, isLandscape = false, del
         
         {/* Techs */}
         {techs && (
-          <div className="mt-3">
+          <div className="mt-2 sm:mt-3">
             <div 
-              className="inline-block px-3 py-1 border border-gray-300 rounded-full"
+              className="inline-block px-2 sm:px-3 py-1 border border-gray-300 rounded-full"
             >
               <p 
-                className="text-xs text-gray-600 font-medium"
+                className="text-xs text-gray-600 font-medium leading-tight"
                 style={{ fontFamily: '"Inter Tight", sans-serif' }}
               >
                 Techs - {techs}
@@ -82,9 +83,9 @@ const ProjectCard = ({ title, description, image, tags, isLandscape = false, del
 
 const ProjectShowcase = () => {
   return (
-    <div id="project-showcase" className="w-full bg-white py-12 sm:py-16 md:py-24 px-4 sm:px-6 md:px-12 lg:px-24">
+    <div id="project-showcase" className="w-full bg-white py-8 sm:py-12 md:py-16 lg:py-24 px-3 sm:px-4 md:px-6 lg:px-12 xl:px-24">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
           <ProjectCard
             title="Nudge"
             description="An ERP software"

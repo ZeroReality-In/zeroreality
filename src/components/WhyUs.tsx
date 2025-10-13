@@ -19,7 +19,7 @@ const ReasonCard = ({
 }: ReasonCardProps) => {
   return (
     <motion.div
-      className="relative w-full rounded-2xl border border-gray-500 bg-white p-6 sm:p-8 overflow-hidden"
+      className="relative w-full rounded-xl sm:rounded-2xl border border-gray-500 bg-white p-4 sm:p-6 md:p-8 overflow-hidden touch-manipulation"
       initial={{
         opacity: 0,
         y: 30,
@@ -42,11 +42,12 @@ const ReasonCard = ({
         borderColor: "#9b87f5",
         boxShadow: "0 12px 24px rgba(155, 135, 245, 0.12)",
       }}
+      whileTap={{ scale: 0.98 }}
     >
-      <div className="flex flex-col md:flex-row md:items-start gap-4 sm:gap-6">
+      <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4 md:gap-6">
         {/* Number */}
         <motion.div
-          className="text-4xl sm:text-5xl font-bold text-gray-400 flex-shrink-0"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-400 flex-shrink-0"
           style={{ fontFamily: '"Inter Tight", sans-serif', fontStyle: 'italic' }}
           initial={{
             opacity: 0,
@@ -67,7 +68,7 @@ const ReasonCard = ({
 
         {/* Content */}
         <div className="flex-1">
-          <div className="flex items-center gap-3 mb-3">
+          <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
             <motion.div
               initial={{
                 scale: 0,
@@ -86,10 +87,10 @@ const ReasonCard = ({
                 once: true,
               }}
             >
-              <div className="text-[#9b87f5] w-6 h-6">{icon}</div>
+              <div className="text-[#9b87f5] w-5 h-5 sm:w-6 sm:h-6">{icon}</div>
             </motion.div>
             <motion.h3
-              className="text-lg sm:text-xl md:text-2xl font-bold text-[#9b87f5]"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-[#9b87f5] leading-tight"
               style={{ fontFamily: '"ClashDisplay-Bold", sans-serif' }}
               initial={{
                 opacity: 0,
@@ -112,7 +113,7 @@ const ReasonCard = ({
           </div>
 
           <motion.p
-            className="text-gray-600 text-sm sm:text-base leading-relaxed"
+            className="text-gray-600 text-xs sm:text-sm md:text-base leading-relaxed"
             style={{ fontFamily: '"Inter Tight", sans-serif', fontStyle: 'normal' }}
             initial={{
               opacity: 0,
@@ -181,11 +182,11 @@ const WhyUs = () => {
     <div
       id="why-us"
       ref={containerRef}
-      className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white"
+      className="relative py-8 sm:py-12 md:py-16 lg:py-20 px-3 sm:px-4 md:px-6 lg:px-8 bg-white"
     >
       {/* Background elements */}
       <motion.div
-        className="absolute -right-40 top-32 w-72 h-72 rounded-full bg-[#9b87f5]/5 blur-3xl pointer-events-none"
+        className="absolute -right-20 sm:-right-40 top-16 sm:top-32 w-48 h-48 sm:w-72 sm:h-72 rounded-full bg-[#9b87f5]/5 blur-3xl pointer-events-none"
         animate={{
           scale: [1, 1.1, 1],
           opacity: [0.3, 0.5, 0.3],
@@ -198,7 +199,7 @@ const WhyUs = () => {
       />
 
       <motion.div
-        className="absolute -left-40 bottom-32 w-72 h-72 rounded-full bg-blue-100/30 blur-3xl pointer-events-none"
+        className="absolute -left-20 sm:-left-40 bottom-16 sm:bottom-32 w-48 h-48 sm:w-72 sm:h-72 rounded-full bg-blue-100/30 blur-3xl pointer-events-none"
         animate={{
           scale: [1, 1.15, 1],
           opacity: [0.3, 0.5, 0.3],
@@ -212,14 +213,14 @@ const WhyUs = () => {
 
       {/* Title section */}
       <motion.div
-        className="max-w-7xl mx-auto mb-12 sm:mb-16 text-center"
+        className="max-w-7xl mx-auto mb-8 sm:mb-12 md:mb-16 text-center"
         style={{
           y: titleY,
           opacity: titleOpacity,
         }}
       >
         <motion.div
-          className="inline-block bg-white px-6 sm:px-8 py-3 sm:py-4 rounded-full border-2 border-[#9b87f5]"
+          className="inline-block bg-white px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-full border-2 border-[#9b87f5]"
           initial={{
             opacity: 0,
             scale: 0.95,
@@ -237,7 +238,7 @@ const WhyUs = () => {
           }}
         >
           <span 
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 flex items-center justify-center gap-2"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 flex items-center justify-center gap-1 sm:gap-2"
             style={{ fontFamily: '"ClashDisplay-Medium", sans-serif' }}
           >
             WHY US?
@@ -260,7 +261,7 @@ const WhyUs = () => {
 
       {/* Cards container */}
       <div className="max-w-5xl mx-auto">
-        <div className="flex flex-col gap-4 sm:gap-6">
+        <div className="flex flex-col gap-3 sm:gap-4 md:gap-6">
           {reasons.map((reason, index) => (
             <ReasonCard
               key={index}

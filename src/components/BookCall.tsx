@@ -197,7 +197,7 @@ const BookCall: React.FC<BookCallProps> = (props = {}) => {
 
       <section
         id="book-call"
-        className="px-4 sm:px-6 relative overflow-hidden bg-background py-10 sm:py-16 md:pt-10 md:pb-32 flex justify-center items-center"
+        className="px-3 sm:px-4 md:px-6 relative overflow-hidden bg-background py-8 sm:py-12 md:py-16 lg:pt-10 lg:pb-32 flex justify-center items-center"
       >
         <div className="max-w-7xl mx-auto relative w-full">
           {/* Left side decoration - rotated radial lines */}
@@ -315,7 +315,7 @@ const BookCall: React.FC<BookCallProps> = (props = {}) => {
           {/* Main content - centered */}
           <div className="flex justify-center">
             <motion.div
-              className="w-full max-w-[350px] sm:max-w-[400px] border-4 border-neon-green rounded-[2rem] p-4 sm:p-6 md:p-8 relative"
+              className="w-full max-w-[320px] sm:max-w-[350px] md:max-w-[400px] border-2 sm:border-4 border-neon-green rounded-xl sm:rounded-2xl md:rounded-[2rem] p-3 sm:p-4 md:p-6 lg:p-8 relative"
               initial={{
                 opacity: 0,
                 scale: 0.9,
@@ -344,7 +344,7 @@ const BookCall: React.FC<BookCallProps> = (props = {}) => {
                 }}
               >
                 <motion.p
-                  className="text-neon-green text-lg md:text-xl mb-3"
+                  className="text-neon-green text-base sm:text-lg md:text-xl mb-2 sm:mb-3"
                   style={{ fontFamily: '"Inter Tight", sans-serif' }}
                   variants={itemVariants}
                 >
@@ -352,25 +352,25 @@ const BookCall: React.FC<BookCallProps> = (props = {}) => {
                 </motion.p>
 
                 <motion.h2
-                  className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3"
+                  className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 sm:mb-3 leading-tight"
                   variants={itemVariants}
                 >
                   Lets Discuss
                 </motion.h2>
 
                 <motion.p
-                  className="text-foreground/60 text-base sm:text-lg mb-6"
+                  className="text-foreground/60 text-sm sm:text-base md:text-lg mb-4 sm:mb-6"
                   style={{ fontFamily: '"Inter Tight", sans-serif' }}
                   variants={itemVariants}
                 >
                   Find what you want.
                 </motion.p>
 
-                <motion.div className="space-y-3 mb-8" variants={itemVariants}>
+                <motion.div className="space-y-2 sm:space-y-3 mb-6 sm:mb-8" variants={itemVariants}>
                   {features.map((feature, index) => (
                     <motion.div
                       key={index}
-                      className="flex items-center gap-3"
+                      className="flex items-start gap-2 sm:gap-3"
                       initial={{
                         opacity: 0,
                         y: 10,
@@ -386,11 +386,11 @@ const BookCall: React.FC<BookCallProps> = (props = {}) => {
                         delay: 0.3 + index * 0.1,
                       }}
                     >
-                      <div className="text-neon-green">
-                        <Check size={20} />
+                      <div className="text-neon-green flex-shrink-0 mt-0.5">
+                        <Check size={16} className="sm:w-5 sm:h-5" />
                       </div>
                       <p 
-                        className="text-foreground/80 text-sm"
+                        className="text-foreground/80 text-xs sm:text-sm leading-relaxed"
                         style={{ fontFamily: '"Inter Tight", sans-serif' }}
                       >
                         {feature}
@@ -404,12 +404,13 @@ const BookCall: React.FC<BookCallProps> = (props = {}) => {
                   className="flex justify-center"
                 >
                   <Button
-                    className="rounded-full text-black bg-neon-green hover:bg-neon-green/90 text-sm sm:text-base py-4 sm:py-6 px-8 sm:px-12 h-auto text-base sm:text-lg font-semibold focus-visible:ring-2 focus-visible:ring-neon-green focus-visible:ring-offset-2"
+                    className="rounded-full text-black bg-neon-green hover:bg-neon-green/90 text-xs sm:text-sm md:text-base py-3 sm:py-4 md:py-6 px-6 sm:px-8 md:px-12 h-auto font-semibold focus-visible:ring-2 focus-visible:ring-neon-green focus-visible:ring-offset-2 touch-manipulation min-h-[44px] w-full sm:w-auto"
                     size="lg"
                     onClick={handleBookCallClick}
                     aria-label="Book an introductory call to discuss your project"
                   >
-                    <ArrowRight className="mr-2 h-4 w-4" /> Book an Intro Call
+                    <ArrowRight className="mr-2 h-3 w-3 sm:h-4 sm:w-4" /> 
+                    <span className="whitespace-nowrap">Book an Intro Call</span>
                   </Button>
                 </motion.div>
               </motion.div>

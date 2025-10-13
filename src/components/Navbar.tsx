@@ -97,7 +97,7 @@ const Navbar = ({ showCalendar = false }: NavbarProps) => {
       initial="hidden"
       animate={showCalendar ? "hidden" : "visible"}
       variants={navVariants}
-      className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-4 py-2 sm:py-3 md:px-8"
+      className="fixed top-0 left-0 right-0 z-50 px-2 sm:px-3 md:px-4 lg:px-8 py-2 sm:py-3"
       style={{
         backdropFilter: "none",
         display: showCalendar ? "none" : "block",
@@ -106,18 +106,18 @@ const Navbar = ({ showCalendar = false }: NavbarProps) => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <motion.div variants={itemVariants} className="flex items-center">
           <div
-            className="border border-white/20 rounded-xl backdrop-blur-xl relative overflow-hidden"
+            className="border border-white/20 rounded-lg sm:rounded-xl backdrop-blur-xl relative overflow-hidden"
             style={{
               backdropFilter: "blur(20px)",
               backgroundColor: "rgba(255, 255, 255, 0.1)",
               border: "1px solid rgba(255, 255, 255, 0.2)",
-              padding: "10px 16px",
+              padding: "8px 12px",
               boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)",
             }}
           >
             {/* Liquid glass shimmer effect */}
             <div
-              className="absolute inset-0 rounded-xl opacity-30"
+              className="absolute inset-0 rounded-lg sm:rounded-xl opacity-30"
               style={{
                 background: "linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%)",
                 animation: "shimmer 3s ease-in-out infinite",
@@ -125,7 +125,7 @@ const Navbar = ({ showCalendar = false }: NavbarProps) => {
             />
             {/* Subtle glow effect */}
             <div
-              className="absolute inset-0 rounded-xl -z-10"
+              className="absolute inset-0 rounded-lg sm:rounded-xl -z-10"
               style={{
                 boxShadow: "0 0 20px rgba(139, 255, 0, 0.2), inset 0 0 20px rgba(139, 255, 0, 0.1)",
               }}
@@ -133,7 +133,7 @@ const Navbar = ({ showCalendar = false }: NavbarProps) => {
             <img 
               src="/lovable-uploads/Reality Logo-cropped.svg" 
               alt="ZeroReality Logo" 
-              className="h-5 sm:h-6 w-auto"
+              className="h-4 sm:h-5 md:h-6 w-auto"
               loading="eager"
               decoding="async"
             />
@@ -141,15 +141,20 @@ const Navbar = ({ showCalendar = false }: NavbarProps) => {
         </motion.div>
 
         {isMobile ? (
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="text-gray-800">
-                  <Menu size={24} />
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="text-gray-800 hover:bg-gray-100/50 touch-manipulation min-h-[44px] min-w-[44px]"
+                  aria-label="Open navigation menu"
+                >
+                  <Menu size={20} className="sm:w-6 sm:h-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent className="w-[80%] sm:w-[350px]">
-                <div className="flex flex-col gap-6 mt-10">
+              <SheetContent className="w-[85%] sm:w-[350px] p-6">
+                <div className="flex flex-col gap-4 sm:gap-6 mt-6 sm:mt-10">
                   <NavItem
                     text="SERVICES"
                     onClick={() => scrollToSection("services-showcase")}
@@ -168,19 +173,15 @@ const Navbar = ({ showCalendar = false }: NavbarProps) => {
                   />
                   <a
                     href="#book-call"
-                    className="framer-button"
+                    className="framer-button touch-manipulation min-h-[44px] flex items-center justify-center"
                     style={{
                       border: "1px solid rgba(255, 255, 255, 0.14)",
                       backgroundColor: "rgb(0, 0, 0)",
-                      height: "100%",
                       borderRadius: "12px",
                       opacity: "1",
-                      padding: "8px 16px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
+                      padding: "12px 16px",
                       textDecoration: "none",
-                      fontWeight: "6  00",
+                      fontWeight: "600",
                       fontSize: "12px",
                       lineHeight: "18px",
                       color: "rgb(153, 255, 51)",
@@ -282,16 +283,16 @@ const NavItem = ({ text, onClick }: { text: string; onClick?: () => void }) => {
   return (
     <motion.a
       onClick={onClick}
-      className="text-gray-900 hover:text-gray-900 transition-colors text-xs font-bold tracking-wide cursor-pointer uppercase py-2 px-3 relative"
+      className="text-gray-900 hover:text-gray-900 transition-colors text-xs sm:text-sm font-bold tracking-wide cursor-pointer uppercase py-3 px-4 relative touch-manipulation min-h-[44px] flex items-center justify-center sm:justify-start rounded-lg hover:bg-gray-100/50"
       style={{ 
         fontFamily: isWorkText ? '"Inter Tight", sans-serif' : '"Inter Tight", sans-serif',
         fontWeight: isWorkText ? 400 : 'normal'
       }}
       whileHover={{
-        scale: 1.05,
+        scale: 1.02,
       }}
       whileTap={{
-        scale: 0.95,
+        scale: 0.98,
       }}
     >
       {text}

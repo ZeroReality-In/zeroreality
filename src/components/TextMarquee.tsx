@@ -75,9 +75,9 @@ const TextMarquee: React.FC<ScrollingBannerProps> = ({ speed = 60 }) => {
             <p
               style={{
                 fontFamily: "Inter, sans-serif",
-                fontSize: "clamp(48px, 8vw, 72px)",
+                fontSize: "clamp(32px, 6vw, 72px)",
                 letterSpacing: "-0.02em",
-                lineHeight: "clamp(56px, 9vw, 80px)",
+                lineHeight: "clamp(40px, 7vw, 80px)",
                 color: "rgb(0, 0, 0)",
                 margin: 0,
                 fontWeight: 700,
@@ -90,7 +90,7 @@ const TextMarquee: React.FC<ScrollingBannerProps> = ({ speed = 60 }) => {
 
           {/* Add star icon after each text except the last one (DELIVER) */}
           {index < marqueeText.length - 1 && (
-            <div style={{ margin: "0 2rem" }}>
+            <div style={{ margin: "0 1rem" }}>
               <StarIcon />
             </div>
           )}

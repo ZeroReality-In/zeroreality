@@ -138,6 +138,16 @@
     font-size: clamp(1rem, 2.5vw, 1.5rem);
   }
 
+  /* Mobile-first responsive utilities */
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+
+  .min-touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
   /* Smooth scrolling for better UX */
   .smooth-scroll {
     scroll-behavior: smooth;
@@ -147,6 +157,66 @@
   .focus-visible:focus-visible {
     outline: 2px solid hsl(var(--ring));
     outline-offset: 2px;
+  }
+
+  /* Mobile viewport fixes */
+  @supports (-webkit-touch-callout: none) {
+    .min-h-screen {
+      min-height: -webkit-fill-available;
+    }
+  }
+
+  /* Prevent zoom on input focus on iOS */
+  @media screen and (max-width: 767px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="password"],
+    textarea,
+    select {
+      font-size: 16px;
+    }
+  }
+
+  /* Desktop optimizations */
+  @media screen and (min-width: 1024px) {
+    /* Better hover states for desktop */
+    .hover-lift:hover {
+      transform: translateY(-2px);
+      transition: transform 0.2s ease;
+    }
+
+    /* Improved focus states for keyboard navigation */
+    .focus-ring:focus-visible {
+      outline: 2px solid hsl(var(--ring));
+      outline-offset: 4px;
+    }
+
+    /* Better scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: hsl(var(--muted));
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: hsl(var(--muted-foreground));
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: hsl(var(--foreground));
+    }
+  }
+
+  /* Large screen optimizations */
+  @media screen and (min-width: 1536px) {
+    .container {
+      max-width: 1400px;
+    }
   }
 }
 

@@ -98,7 +98,7 @@ const SelectedWork = () => {
   return (
     <div
       id="works"
-      className="relative w-full min-h-[80vh] bg-background flex flex-col items-center justify-center"
+      className="relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] bg-background flex flex-col items-center justify-center px-4 sm:px-6"
     >
       <motion.div
         variants={titleVariants}
@@ -109,7 +109,7 @@ const SelectedWork = () => {
       >
         <motion.h2
           variants={accentVariants}
-          className="text-6xl md:text-7xl lg:text-8xl font-normal text-[#9b87f5] dark:text-[#9b87f5] tracking-tight mb-4"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-normal text-[#9b87f5] dark:text-[#9b87f5] tracking-tight mb-3 sm:mb-4"
           style={{ fontFamily: '"Instrument Serif", serif', fontStyle: 'italic', fontWeight: 400 }}
           whileHover={{
             scale: 1.05,
@@ -138,7 +138,7 @@ const SelectedWork = () => {
                   letterSpacing: "0.05em",
                   fontFamily: '"Inter Tight", sans-serif',
                 }}
-                className="text-6xl md:text-7xl uppercase tracking-tight lg:text-9xl inline-block"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl uppercase tracking-tight inline-block"
                 whileHover={{
                   scale: 1.1,
                   color: hoverColor,
@@ -158,10 +158,10 @@ const SelectedWork = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="mt-12 md:mt-16"
+        className="mt-8 sm:mt-12 md:mt-16"
       >
         <motion.div
-          className="rounded-full w-16 h-28 flex items-center justify-center border-2 border-foreground/30 bg-transparent relative cursor-pointer"
+          className="rounded-full w-12 h-20 sm:w-14 sm:h-24 md:w-16 md:h-28 flex items-center justify-center border-2 border-foreground/30 bg-transparent relative cursor-pointer touch-manipulation"
           variants={buttonVariants}
           whileHover="hover"
           whileTap={{ scale: 0.95 }}
@@ -177,7 +177,7 @@ const SelectedWork = () => {
               },
             }}
           >
-            <ChevronDown className="w-6 h-6 text-[#8BFF00]" />
+            <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-[#8BFF00]" />
           </motion.div>
         </motion.div>
       </motion.div>

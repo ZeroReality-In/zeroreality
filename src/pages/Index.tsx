@@ -42,18 +42,18 @@ const Index = () => {
             <Navbar showCalendar={showCalendar} />
             <div className="relative z-10">
               <Hero />
-              <div className="my-24 md:my-32">
+              <div className="my-12 sm:my-16 md:my-24 lg:my-32">
                 <ServicesShowcase />
               </div>
               <TextMarquee />
-              <div className="my-10 md:my-40">
+              <div className="my-8 sm:my-10 md:my-16 lg:my-40">
                 <SelectedWork />
               </div>
-              <div className="mt-16 md:-mt-20">
+              <div className="mt-8 sm:mt-12 md:mt-16 lg:-mt-20">
                 <ProjectShowcase />
               </div>
               <WhyUs />
-              <div className="mt-12 md:mt-16">
+              <div className="mt-8 sm:mt-12 md:mt-16">
                 <BookCall {...({ showCalendar, setShowCalendar } as any)} />
               </div>
               <Footer />
