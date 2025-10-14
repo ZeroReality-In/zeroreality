@@ -26,7 +26,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="relative overflow-x-hidden">
+    <div className="relative overflow-x-hidden min-h-screen bg-background">
       <AnimatePresence>
         {isLoading ? (
           <LoadingScreen key="loading" />
@@ -36,7 +36,7 @@ const Index = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.4 }}
             className="min-h-screen bg-background"
           >
             <Navbar showCalendar={showCalendar} />
@@ -71,7 +71,7 @@ const LoadingScreen = () => {
       className="fixed inset-0 bg-background flex items-center justify-center z-50"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0, transition: { duration: 0.5 } }}
+      exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.3, ease: "easeInOut" } }}
     >
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
@@ -88,19 +88,23 @@ const LoadingScreen = () => {
         className="flex flex-col items-center"
       >
         <motion.div
-          className="text-3xl sm:text-4xl font-bold text-foreground mb-4"
+          className="mb-4"
           animate={{
             opacity: [0.5, 1, 0.5],
             scale: [0.98, 1.02, 0.98],
-            rotate: [-1, 1, -1],
+            rotate: [0, 360],
           }}
           transition={{
             repeat: Infinity,
-            duration: 2,
-            ease: "easeInOut",
+            duration: 3,
+            ease: "linear",
           }}
         >
-          ZERO REALITY
+          <img 
+            src="/workflow/zero.png" 
+            alt="Zero Reality" 
+            className="h-32 sm:h-40 md:h-48 lg:h-56 w-auto"
+          />
         </motion.div>
         <motion.div className="h-1 w-32 sm:w-40 bg-muted rounded-full overflow-hidden">
           <motion.div
