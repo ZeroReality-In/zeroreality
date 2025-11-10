@@ -165,21 +165,25 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Right side - Vertical Reel-like Image */}
-          <div className="flex-1 flex justify-center mt-4 sm:mt-6 lg:mt-0">
+          {/* Right side - Spinning Zero Image - Hidden on mobile */}
+          <div className="hidden sm:flex flex-1 justify-center -mt-12 sm:-mt-10 lg:-mt-16">
             <motion.div
               variants={itemVariants}
-              className="relative w-full max-w-[280px] sm:max-w-xs lg:max-w-sm"
+              className="relative w-full max-w-sm mx-auto"
             >
-              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border-2 sm:border-4 border-neon-green/20 bg-gradient-to-br from-neon-green/10 to-neon-green/5 backdrop-blur-sm aspect-[9/16]">
-                <div className="w-full h-full bg-gray-200 border-2 border-dashed rounded-2xl sm:rounded-3xl flex items-center justify-center text-gray-500 text-xs sm:text-sm">
-                  Reel Image
-                </div>
+              <div className="relative w-full aspect-square flex items-center justify-center">
+                <motion.img
+                  src="/workflow/zero.png"
+                  alt="Zero Reality Logo"
+                  className="w-64 h-64 lg:w-80 lg:h-80 object-contain"
+                  animate={{ rotate: 360 }}
+                  transition={{
+                    duration: 8,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                />
               </div>
-
-              {/* Decorative elements - responsive sizing */}
-              <div className="absolute -top-2 sm:-top-4 -right-2 sm:-right-4 w-16 h-16 sm:w-24 sm:h-24 rounded-full bg-neon-green/20 blur-xl"></div>
-              <div className="absolute -bottom-2 sm:-bottom-4 -left-2 sm:-left-4 w-20 h-20 sm:w-32 sm:h-32 rounded-full bg-purple-500/20 blur-xl"></div>
             </motion.div>
           </div>
         </div>
