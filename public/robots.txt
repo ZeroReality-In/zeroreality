@@ -2,16 +2,11 @@
 User-agent: *
 Allow: /
 
-# Sitemap location
-Sitemap: https://zeroreality.in/sitemap.xml
 
-# Prevent crawling of certain paths
+# Disallow private routes only
 Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
-Disallow: /*.json$
-Disallow: /*.js$
-Disallow: /*.css$
 
-# Crawl-delay for all bots
-Crawl-delay: 10 
+# Sitemap location
+Sitemap: https://zeroreality.in/sitemap.xml
