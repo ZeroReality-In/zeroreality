@@ -44,6 +44,16 @@ const Footer = () => {
                   INSTAGRAM
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://www.github.com/zeroreality-in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground hover:text-neon-green transition-colors text-sm sm:text-base touch-manipulation min-h-[44px] flex items-center"
+                >
+                  GITHUB
+                </a>
+              </li>
             </ul>
           </div>
 
