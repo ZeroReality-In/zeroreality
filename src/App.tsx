@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Services from "./pages/Services";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
+import BlogPost from "./pages/BlogPost";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { useLenis } from "./hooks/useLenis";
 
@@ -31,6 +32,7 @@ const App = () => {
                 <Route path="/" element={<Index />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/blog/what-is-zeroreality" element={<BlogPost />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </AnimatePresence>

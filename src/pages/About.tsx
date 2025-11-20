@@ -69,6 +69,10 @@ const About = () => {
             <p className="mb-6 text-lg leading-relaxed">
               Our vision is to become a trusted partner for brands who want smarter, modern, and long-lasting digital systems.
             </p>
+            <h2 className="text-2xl md:text-3xl font-bold mt-12 mb-4" style={{ fontFamily: "'ClashDisplay-Variable', system-ui, sans-serif" }}>
+              ZeroReality is not associated with Zero Latency VR, Fortnite’s Reality Zero, or any VR/entertainment companies.
+
+            </h2>
           </div>
         </div>
       </motion.div>
