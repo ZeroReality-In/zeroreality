@@ -106,7 +106,7 @@ const Hero = () => {
         className="z-10 max-w-7xl mx-auto pt-6 sm:pt-8 md:pt-12 w-full px-3 sm:px-4 md:px-6 lg:px-12"
       >
         <div className="flex flex-col lg:flex-row items-center gap-4 sm:gap-6 lg:gap-8">
-          {/* Left side - Text content */}
+          {/* Left side - content */}
           <div className="flex-1 lg:pl-8 text-center lg:text-left">
             <motion.div variants={itemVariants}>
               <h1
