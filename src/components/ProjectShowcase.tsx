@@ -126,17 +126,7 @@ const ProjectShowcase = () => {
             
             link="https://cafe.zeroreality.in"
           />
-           <ProjectCard
-            title="ProPg"
-            description="Helps Pg owners to Keep Track of the tenents"
-            image="/project-images/project2.png"
-            tags={["DESIGN SYSTEM", "UI", "BRANDING"]} 
-            isLandscape={false}
-            delay={0.2}
-            descriptionColor="text-white/48"
-            
-            link="https://manmohey.zeroreality.in"
-          />
+           
         </div>
       </div>
     </div>
