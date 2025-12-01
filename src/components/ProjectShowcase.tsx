@@ -106,7 +106,7 @@ const ProjectShowcase = () => {
           <ProjectCard
             title="Nudge"
             description="An ERP software"
-            image="/project-images/project1.png"
+            image="/project-images/pro.png"
             tags={["DESIGN SYSTEM", "UI", "BRANDING"]} 
             isLandscape={true}
             delay={0}
