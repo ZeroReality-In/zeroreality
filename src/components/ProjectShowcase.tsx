@@ -1,5 +1,7 @@
 
 import { motion } from "framer-motion";
+import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 
 interface ProjectCardProps {
   title: string;
@@ -10,9 +12,10 @@ interface ProjectCardProps {
   delay?: number;
   descriptionColor?: string;
   techs?: string;
+  link?: string;
 }
 
-const ProjectCard = ({ title, description, image, tags, isLandscape = false, delay = 0, descriptionColor = "text-white/48", techs }: ProjectCardProps) => {
+const ProjectCard = ({ title, description, image, tags, isLandscape = false, delay = 0, descriptionColor = "text-white/48", techs, link }: ProjectCardProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -35,6 +38,20 @@ const ProjectCard = ({ title, description, image, tags, isLandscape = false, del
           loading="lazy"
           decoding="async"
         />
+        {/* Link Button Overlay */}
+        {link && (
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/30 rounded-xl sm:rounded-2xl">
+            <Link to={link}>
+              <Button 
+                variant="default" 
+                className="bg-white text-black hover:bg-gray-100 font-bold py-2 px-6 rounded-full transition-all duration-300 transform translate-y-4 group-hover:translate-y-0"
+              >
+            
+               <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M14 2H5.50003L4.00003 3.5L6.83581 6.33579L0.585815 12.5858L3.41424 15.4142L9.66424 9.16421L12.5 12L14 10.5L14 2Z" fill="#000000"></path> </g></svg>
+              </Button>
+            </Link>
+          </div>
+        )}
       </div>
       
       {/* Details Section Below Image */}
@@ -94,10 +111,22 @@ const ProjectShowcase = () => {
             isLandscape={true}
             delay={0}
             descriptionColor="text-white/48"
-            techs="Scalable Architecture, AI analytics"
+            
+            link="https://nudge.zeroreality.in/"
           />
           
           <ProjectCard
+            title="Latte Laven"
+            description="Your perfect spot for coffee, pastries, and more."
+            image="/project-images/project2.png"
+            tags={["DESIGN SYSTEM", "UI", "BRANDING"]} 
+            isLandscape={true}
+            delay={0.2}
+            descriptionColor="text-white/48"
+            
+            link="https://cafe.zeroreality.in"
+          />
+           <ProjectCard
             title="ProPg"
             description="Helps Pg owners to Keep Track of the tenents"
             image="/project-images/project2.png"
@@ -105,7 +134,8 @@ const ProjectShowcase = () => {
             isLandscape={false}
             delay={0.2}
             descriptionColor="text-white/48"
-            techs="Cross-platform large and secure Databases"
+            
+            link="https://manmohey.zeroreality.in"
           />
         </div>
       </div>
