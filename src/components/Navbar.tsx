@@ -134,10 +134,10 @@ const Navbar = ({ showCalendar = false }: NavbarProps) => {
               }}
             />
             <Link to="/">
-              <img 
-                src="/lovable-uploads/Reality Logo-cropped.svg" 
-                alt="ZeroReality Logo" 
-                className="h-5 sm:h-6 w-auto"
+              <img
+                src="/lovable-uploads/Reality Logo-cropped.svg"
+                alt="ZeroReality Logo"
+                className="h-7 sm:h-8 w-auto"
                 loading="eager"
                 decoding="async"
               />
@@ -173,7 +173,7 @@ const Navbar = ({ showCalendar = false }: NavbarProps) => {
                         text="CONTACT"
                         onClick={() => scrollToSection("footer")}
                       />
-                      
+
                       <a
                         href="#book-call"
                         className="framer-button"
@@ -188,9 +188,9 @@ const Navbar = ({ showCalendar = false }: NavbarProps) => {
                           alignItems: "center",
                           justifyContent: "center",
                           textDecoration: "none",
-                          fontWeight: "6  00",
-                          fontSize: "12px",
-                          lineHeight: "18px",
+                          fontWeight: "600",
+                          fontSize: "14px",
+                          lineHeight: "20px",
                           color: "rgb(153, 255, 51)",
                           fontFamily: "'Inter Tight', sans-serif",
                         }}
@@ -248,7 +248,7 @@ const Navbar = ({ showCalendar = false }: NavbarProps) => {
                     text="CONTACT"
                     onClick={() => scrollToSection("footer")}
                   />
-                  
+
                 </div>
                 <a
                   href="#book-call"
@@ -265,8 +265,8 @@ const Navbar = ({ showCalendar = false }: NavbarProps) => {
                     justifyContent: "center",
                     textDecoration: "none",
                     fontWeight: "900",
-                    fontSize: "12px",
-                    lineHeight: "18px",
+                    fontSize: "14px",
+                    lineHeight: "20px",
                     color: "rgb(153, 255, 51)",
                     fontFamily: "'Inter Tight', sans-serif",
                   }}
@@ -294,8 +294,8 @@ const NavItem = ({ text, onClick, href }: { text: string; onClick?: () => void; 
     return (
       <Link
         to={href}
-        className="text-gray-900 hover:text-gray-900 transition-colors text-xs font-bold tracking-wide cursor-pointer uppercase py-2 px-3 relative"
-        style={{ 
+        className="text-gray-900 hover:text-gray-900 transition-colors text-sm font-bold tracking-wide cursor-pointer uppercase py-2 px-3 relative"
+        style={{
           fontFamily: isWorkText ? '"Inter Tight", sans-serif' : '"Inter Tight", sans-serif',
           fontWeight: isWorkText ? 400 : 'normal'
         }}
@@ -309,7 +309,7 @@ const NavItem = ({ text, onClick, href }: { text: string; onClick?: () => void; 
     <motion.a
       onClick={onClick}
       className="text-gray-900 hover:text-gray-900 transition-colors text-xs font-bold tracking-wide cursor-pointer uppercase py-2 px-3 relative"
-      style={{ 
+      style={{
         fontFamily: isWorkText ? '"Inter Tight", sans-serif' : '"Inter Tight", sans-serif',
         fontWeight: isWorkText ? 400 : 'normal'
       }}

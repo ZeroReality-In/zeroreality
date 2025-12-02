@@ -81,65 +81,74 @@ const ServicesShowcase = () => {
           className="absolute top-[-100px]"
         ></div>
 
-        <div className="relative">
-          {/* "WE OFFER" pill at the top */}
-          <motion.div
-            className="mx-auto mb-4 bg-black rounded-full py-3 px-6 inline-flex items-center justify-center border-2 border-[#9b87f5]"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            style={{
-              rotate: bubbleRotate,
-              y: -70,
-              x: 0,
-            }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <motion.span
-              className="text-xl font-bold text-white whitespace-nowrap"
-              style={{ fontFamily: '"Inter Tight", sans-serif' }}
-              animate={{
-                scale: [1, 1.05, 1],
-                transition: { duration: 2, repeat: Infinity },
+        <div className="relative flex justify-center items-center">
+          <div className="relative w-full max-w-xl">
+            {/* Green rectangle with services */}
+            <motion.div
+              className="bg-[#8BFF00] rounded-3xl px-4 sm:px-6 py-6 sm:py-8 pt-12 pb-12 relative z-10"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              whileHover={{
+                boxShadow: "0 20px 40px rgba(173, 255, 0, 0.3)",
+                transition: { duration: 0.4 },
               }}
             >
-              WE OFFER 🪄
-            </motion.span>
-          </motion.div>
-
-          {/* Green rectangle with services */}
-          <motion.div
-            className="bg-[#8BFF00] rounded-3xl px-4 sm:px-6 py-6 sm:py-8 relative z-10"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            whileHover={{
-              boxShadow: "0 10px 25px rgba(173, 255, 0, 0.3)",
-              transition: { duration: 0.3 },
-            }}
-          >
-            <motion.div className="flex flex-col items-center text-center space-y-4 sm:space-y-5">
-              {services.map((service, index) => (
-                <motion.div
-                  key={index}
-                  className="text-lg sm:text-xl md:text-2xl font-bold text-black"
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: false, amount: 0.1 }}
-                  transition={{
-                    delay: 0.1 * index,
-                    duration: 0.4,
-                    type: "spring",
-                  }}
-                  whileHover={{ scale: 1.05, x: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {service}
-                </motion.div>
-              ))}
+              <motion.div className="flex flex-col items-end text-right space-y-4 sm:space-y-5">
+                {services.map((service, index) => (
+                  <motion.div
+                    key={index}
+                    className="text-2xl md:text-3xl xl:text-4xl font-medium text-black"
+                    custom={index}
+                    initial="hidden"
+                    whileInView="visible"
+                    whileHover="hover"
+                    viewport={{ once: false, amount: 0.1 }}
+                    variants={serviceVariants}
+                  >
+                    {service}
+                  </motion.div>
+                ))}
+              </motion.div>
             </motion.div>
-          </motion.div>
+
+            {/* "WE OFFER" bubble - overlaying on the left */}
+            <motion.div
+              className="absolute -left-2 top-8 sm:-left-10 sm:top-20 z-20 bg-black rounded-full p-4 sm:p-6 border-2 border-[#9b87f5]"
+              style={{
+                y: bubbleY,
+                rotate: bubbleRotate,
+                scale: bubbleScale,
+              }}
+              whileHover={{
+                scale: 1.1,
+                borderColor: "#8BFF00",
+                boxShadow: "0 5px 15px rgba(155, 135, 245, 0.4)",
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <motion.span
+                className="text-xl sm:text-2xl md:text-4xl font-medium text-white whitespace-nowrap"
+                style={{ fontFamily: '"Inter Tight", sans-serif' }}
+                animate={{
+                  scale: [1, 1.05, 1],
+                  transition: { duration: 3, repeat: Infinity },
+                }}
+              >
+                We Offer
+                <motion.span
+                  animate={{
+                    rotate: [0, 15, 0, -15, 0],
+                    x: [0, 2, 0, -2, 0],
+                    transition: { duration: 2, repeat: Infinity },
+                  }}
+                  className="inline-block ml-2"
+                >
+                  🪄
+                </motion.span>
+              </motion.span>
+            </motion.div>
+          </div>
         </div>
       </motion.div>
     );
